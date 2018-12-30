@@ -2,18 +2,16 @@
   <head>
     <meta charset='UTF-8'/>
     <title>Belinda Li</title>
-    <link rel='stylesheet' href='/cse/web/homes/lib49/style.css' />
+    <link rel='stylesheet' href='./styles/base.css' />
   </head>
   <body>
     <header>
-      <h1 id='name'> BELINDA LI </h1>
+      <h1> BELINDA LI </h1>
     <header>
     <figure>
       <a href='yellowstone.jpg'><img src='yellowstone_cropped.png' alt='Taken at Yellowstone National Park, Wyoming, USA' width=400 /></a>
-      <figcaption>Taken at Yellowstone National Park</figcaption>
+      <figcaption>Taken at Yellowstone National Park (click to expand)</figcaption>
     </figure>
-    <p>This site is pretty barren right now. I&rsquo;ll add more content (and make it prettier!) when I have time :).</p>
-    <hr />
     <h2> Intro </h2>
     <p>I am currently a senior studying computer science at the University of Washington (heretofore abbreviated UW).
        I started college at the age of 15 through the <a href='https://robinsoncenter.uw.edu/programs/eep/' target='_blank'>Robinson Center&rsquo;s Early Entrance Program</a>, a program where students attend college full-time after middle school (i.e. 8th grade), following just a year of &ldquo;Transition School.&rdquo;
