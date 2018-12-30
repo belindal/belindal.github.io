@@ -2,7 +2,7 @@
   <head>
     <meta charset='UTF-8'/>
     <title>Belinda Li</title>
-    <link rel='stylesheet' href='style.css' />
+    <link rel='stylesheet' href='/cse/web/homes/lib49/style.css' />
   </head>
   <body>
     <header>
