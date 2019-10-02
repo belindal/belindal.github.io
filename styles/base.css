@@ -9,29 +9,35 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;					/* boldness */
   font-style: normal;					/* italics */
   background-color: #DDE0E3;    /* Light gray */
+  display: block;
 }
 
 h1 {
   font-size: 2em;
   font-weight: bold;
   padding: 50px;
+  border-bottom: 1px solid #5D6063;	/* Size Style Color (gray) */
 }
 
 h2 {
   font-size: 1.5em;
   padding: 20px 10px;	/* Vertical Horizontal */
+  border: 1px solid #5D6063;	/* Size Style Color (gray) */
 }
 
 ul {
   list-style-type: circle;
   padding: 5px 0 50px 50px;	/* Top Right Bottom Left */
   display: block;
-  background-color: #DDE0E3;
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 img {
   display: block;
-  border: 1px solid #5D6063;	/* Size Style Color (gray) */
+  border: 1px solid #0000FF;	/* Size Style Color (blue) */
 }
 
 a {
@@ -41,4 +47,6 @@ a {
 
 p {
   text-align: left;
+  margin-bottom: 20px;
+  display: block;
 }

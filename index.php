@@ -3,6 +3,15 @@
     <meta charset='UTF-8'/>
     <title>Belinda Li</title>
     <link rel='stylesheet' href='./styles/base.css' />
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133669415-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'UA-133669415-1');
+      </script>
   </head>
   <body>
     <header>
@@ -38,8 +47,8 @@
 
     <hr />
     <h2> Research </h2>
-    <p>Document-Level Entity to Entity Sentiment Analysis with LSTM-based Models</p>
-    <p>[<a href='./ent2ent_sentiment_2018.pdf' target='_blank'>Paper</a>]
+    <p>Document-Level Entity to Entity Sentiment Analysis with LSTM-based Models <br>
+       [<a href='./ent2ent_sentiment_2018.pdf' target='_blank'>Paper</a>]
        [<a href='./ent2ent_sentiment_2018.poster.pdf' target='_blank'>Poster</a>]</p>
 
     <hr /> 
