@@ -84,7 +84,6 @@
     </p>
     <!-- <p>You can check out my <a href='./resume_belinda.pdf' target='_blank'>resume</a> here. [Disclaimer: probably out-of-date].</p> -->
 
-   
     <hr /> 
     <h2> Contact </h2>
     <p>Email: <a href = "mailto: belindali@fb.com">belindali@fb.com</a> // <a href = "mailto: belindazli65@gmail.com">belindazli65@gmail.com</a> </p>
