@@ -73,6 +73,7 @@ aside section {
 }*/
 
 #research_qs {
+  font-size: 1em;
   list-style-type: circle;
   position: relative;
   display: flex;
