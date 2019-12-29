@@ -60,7 +60,8 @@ aside {
 
 aside section {
   padding: 0px 10px;
-  margin: 10px 0;
+  /*margin: 10px 0;*/
+  margin: 0;
   background-color: #ffffff;
   border: 5px ridge #5d6062;
   border-radius: 12px;
@@ -71,12 +72,11 @@ aside section {
   color: #8a8aff;
 }*/
 
-ul {
+#research_qs {
   list-style-type: circle;
-  padding: 5px 0 0 0;	/* Top Right Bottom Left */
-  margin: 5px 0 0 0;
-  display: block;
-  border: 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 header ul {
