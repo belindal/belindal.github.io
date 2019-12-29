@@ -3,6 +3,7 @@ body {
   color: #252629;		/* Dark gray */
   background-color: #ffffff;	/* Light gray */
   font-size: 1em;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,15 +21,17 @@ h1 {
 
 header {
   font-family: "Helvetica", "Arial", sans-serif;	/* fallback fonts */
+  /* position: fixed; */
   background-color: #F6F6F6;
-  padding: 50px 50px 5px 10px;	/* Top Right Bottom Left */
+  margin: 0;
+  padding: 50px 10px 0 10px;	/* Top Right Bottom Left */
   border-bottom: 10px ridge #5d6063;	/* Size Style Color (gray) */
   display: flex;
 }
 
 section {
   padding: 0px 10px;	/* Vertical Horizontal */
-  margin: 0.83em 0;	 /* Vertical Horizontal */
+  margin: 0.83em 8px;	 /* Vertical Horizontal */
   background-color: #F6F6F6;    /* Light gray */
   border: 2px solid #F6F6F6;	/* Size Style Color (gray) */
   border-radius: 12px;
