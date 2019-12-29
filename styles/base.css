@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2em;
   font-weight: bold;
+  padding: 0 10px 0 10px;	/* Top Right Bottom Left */
 }
 
 header {
@@ -72,8 +73,8 @@ aside section {
 
 ul {
   list-style-type: circle;
-  padding: 5px 0 0 50px;	/* Top Right Bottom Left */
-  margin: 5px 0 0 50px;
+  padding: 5px 0 0 0;	/* Top Right Bottom Left */
+  margin: 5px 0 0 0;
   display: block;
   border: 0px;
 }
