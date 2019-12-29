@@ -1,7 +1,8 @@
 body {
+  font-family: "Georgia", "Times New Roman", serif;	/* fallback fonts */
   color: #414141;		/* Dark gray */
   background-color: #EEEEEE;	/* Light gray */
-  font-size: 18px;
+  font-size: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,29 +16,71 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2em;
   font-weight: bold;
-  padding: 50px;
-  border-bottom: 1px solid #5D6063;	/* Size Style Color (gray) */
+  padding: 50px 50px 5px 10px;	/* Top Right Bottom Left */
+  border-bottom: 10px ridge #5D6063;	/* Size Style Color (gray) */
 }
 
-h2 {
-  font-size: 1.5em;
-  padding: 20px 10px;	/* Vertical Horizontal */
-  border: 1px solid #5D6063;	/* Size Style Color (gray) */
+section {
+  padding: 0px 10px;	/* Vertical Horizontal */
+  margin: 0.83em 0;	 /* Vertical Horizontal */
+  background-color: #DDE0E3;    /* Light gray */
+  border: 5px double #5D6063;	/* Size Style Color (gray) */
+  border-radius: 12px;
 }
+
+section h2 {
+  font-size: 1.5em;
+  background-color: #DDE0E3;    /* Light gray */
+  /* padding: 20px 10px;	/* Vertical Horizontal */
+  border-bottom: 2px solid #5D6063;	/* Size Style Color (gray) */
+}
+
+h3 {
+  font-size: 1em;
+}
+
+aside {
+  position: relative;
+  padding: 0px 10px;	/* Vertical Horizontal */
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  overflow: auto;
+}
+
+aside section {
+  padding: 0px 10px;
+  margin: 10px 0;
+  /*background-color: #eeeeee;*/
+  border: 5px ridge #5d6062;
+  border-radius: 12px;
+  /*color: #dde0e2;*/
+}
+
+/*aside section a {
+  color: #8a8aff;
+}*/
 
 ul {
   list-style-type: circle;
-  padding: 5px 0 50px 50px;	/* Top Right Bottom Left */
+  padding: 5px 0 0 50px;	/* Top Right Bottom Left */
+  margin: 5px 0 0 50px;
   display: block;
+  border: 0px;
 }
 
-li {
-  margin-bottom: 10px;
+nav li {
+  display: inline;
+  list-style-type: none;
 }
+
+/*li {
+  margin-bottom: 10px;
+}*/
 
 img {
   display: block;
-  border: 1px solid #0000FF;	/* Size Style Color (blue) */
+  border: 1px solid #5d6062;	/* Size Style Color (gray) */
 }
 
 a {
