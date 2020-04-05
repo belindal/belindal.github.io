@@ -6,14 +6,15 @@ main {
 body {
   font-family: "Georgia", "Times New Roman", serif;	/* fallback fonts */
   color: #2c2c2e;		/* Dark gray */
-  background-color: #FFFFFF;	/* Light gray */
-  font-size: 1em;
+  background-color: #fbfbfb;	/* Light gray */
+  font-size: 1.1em;
+  line-height: 1.2;
   margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;	/* fallback fonts */
-  font-weight: normal;					/* boldness */
+  font-weight: bold;					/* boldness */
   font-style: normal;					/* italics */
   /*background-color: #FFFFFF;    /* white */
   display: block;
@@ -22,14 +23,38 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2em;
   font-weight: bold;
-  color: #2c2c2e;
-  padding: 0 10px 0 10px;	/* Top Right Bottom Left */
+  /*color: #2c2c2e; */
+  padding: 10px 0 0 0;	/* Top Right Bottom Left */
+  margin-block-start: 0.83em;
+  margin-block-end: 0.2em;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
 }
 
 header {
   font-family: "Helvetica", "Arial", sans-serif;	/* fallback fonts */
   /* position: fixed; */
-  background-color: #EAE7DC;
+  background-color: #d7d0de;
   /* margin: 0 0 30px 0; */
   margin: 0;
   padding: 50px 10px 0 10px;	/* Top Right Bottom Left */
@@ -38,11 +63,18 @@ header {
   display: flex;
 }
 
+.margin {
+    float: right;
+    width: 200px;
+    margin-right: -250px;
+    border-radius: 5px;
+}
+
 section {
   padding: 5px 50px;	/* Vertical Horizontal */
   margin: 0.83em 8px;	 /* Vertical Horizontal */
-  background-color: #EAE7DC;    /* Light gray */
-  border: 2px solid #EAE7DC;	/* Size Style Color (gray) */
+  /*background-color: #EAE7DC;    /* Light gray */
+  /*border: 2px solid #EAE7DC;	/* Size Style Color (gray) */
   border-radius: 12px;
 }
 
@@ -57,34 +89,6 @@ section h2 {
 h3 {
   font-size: 1em;
 }
-
-aside {
-  position: relative;
-  padding: 0px 20px 10px 0px;	/* Vertical Horizontal */
-  margin-left: auto;
-  margin-right: auto;
-  float: left;
-  overflow: auto;
-}
-
-aside p {
-  margin: 0 20px 10px 35px;
-}
-
-aside section {
-  padding: 0 0 10px 0;
-  margin: 10px 0;
-  margin: 0;
-  background-color: #dcdfea;
-  border: 5px ridge #9a9ca3;
-  border-radius: 12px;
-  font-size: 0.9em;
-  /*color: #dde0e2;*/
-}
-
-/*aside section a {
-  color: #8a8aff;
-}*/
 
 #research_qs {
   font-size: 1em;
@@ -122,7 +126,7 @@ img {
 }
 
 a {
-  color: #0000FF;		/* Blue */
+  color: #1084ff;		/* Blue */
   text-decoration: none;	/* no underline */
 }
 
