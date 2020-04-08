@@ -5,7 +5,7 @@ main {
 
 body {
   font-family: "Georgia", "Times New Roman", serif;	/* fallback fonts */
-  color: #2c2c2e;		/* Dark gray */
+  color: #404040; /*#2c2c2e;		/* Dark gray */
   background-color: #fbfbfb;	/* Light gray */
   font-size: 1.1em;
   line-height: 1.2;
@@ -14,41 +14,25 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;	/* fallback fonts */
-  font-weight: bold;					/* boldness */
+  font-weight: normal;					/* boldness */
   font-style: normal;					/* italics */
+  color: #2c2c2c;
   /*background-color: #FFFFFF;    /* white */
   display: block;
 }
 
 h1 {
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 2.5em;
   /*color: #2c2c2e; */
   padding: 10px 0 0 0;	/* Top Right Bottom Left */
   margin-block-start: 0.83em;
   margin-block-end: 0.2em;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Create two unequal columns that floats next to each other */
-.column {
-  float: left;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-.left {
-  width: 25%;
-}
-
-.right {
-  width: 75%;
+table td {
+    padding: 5px 0;
+    vertical-align: top;
+    font-size: 1.1em;
 }
 
 header {
@@ -81,9 +65,10 @@ section {
 section h2 {
   font-size: 1.5em;
   /*background-color: #FFFFFF;    /* Light gray */
-  /* padding: 20px 10px;	/* Vertical Horizontal */
-  border-bottom: 2px solid #9a9ca3;	/* Size Style Color (gray) */
-  color: #2c2c2e;
+  /*padding: 20px 0;	/* Vertical Horizontal */
+  /*font-weight: bold;*/
+  margin: 20px 0;
+  border-bottom: 2px solid #ccc;	/* Size Style Color (gray) */
 }
 
 h3 {
@@ -122,7 +107,7 @@ header ul li {
 
 img {
   display: block;
-  border: 1px solid #252629;	/* Size Style Color (gray) */
+  border: 1px solid #ddd;	/* Size Style Color (gray) */
 }
 
 a {
