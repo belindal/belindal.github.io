@@ -29,6 +29,12 @@ h1 {
   margin-block-end: 0.2em;
 }
 
+table .date {width: 150;}
+
+@media only screen and (max-device-width: 480px) {
+    table .date {width: 500;}
+}
+
 table td {
     padding: 5px 5px 5px 0;
     vertical-align: top;
