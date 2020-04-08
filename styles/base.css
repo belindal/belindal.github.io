@@ -32,7 +32,7 @@ h1 {
 table .date {width: 150;}
 
 @media only screen and (max-device-width: 480px) {
-    table .date {width: 300;}
+    table .date {width: 200; font-size: 1.2em;}
 }
 
 table td {
