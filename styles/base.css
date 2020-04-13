@@ -1,16 +1,19 @@
 main {
-  max-width: 900;
   margin: auto;
+  max-width: 900px;
+  padding: 0 50px 20px 50px;
 }
 
 body {
   font-family: "Georgia", "Times New Roman", serif;	/* fallback fonts */
   color: #404040; /*#2c2c2e;		/* Dark gray */
   background-color: #fbfbfb;	/* Light gray */
-  font-size: 1.1em;
+  font-size: 100%;  /*1.1em;*/
   line-height: 1.2;
   margin: 0;
 }
+
+html, body { height: auto; min-height: 100%; -webkit-text-size-adjust: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;	/* fallback fonts */
@@ -29,19 +32,11 @@ h1 {
   margin-block-end: 0.2em;
 }
 
-table .date {width: 150; font-weight: bold;}
+table.news .date {width: 150px; font-weight: bold;}
 
-@media only screen and (max-device-width: 480px) {
-    table .date {width: 200; font-size: 1.3em; font-weight: bold;}
-    table td {
-        font-size: 1.3em;
-    }
-}
-
-table td {
-    padding: 5px 5px 5px 0;
+table.news td {
+    padding: 0 20px 10px 0;
     vertical-align: top;
-    font-size: 1.1em;
 }
 
 header {
@@ -64,8 +59,7 @@ header {
 }
 
 section {
-  padding: 5px 50px;	/* Vertical Horizontal */
-  margin: 0.83em 8px;	 /* Vertical Horizontal */
+  padding: 10px 0;	/* Vertical Horizontal */
   /*background-color: #EAE7DC;    /* Light gray */
   /*border: 2px solid #EAE7DC;	/* Size Style Color (gray) */
   border-radius: 12px;
