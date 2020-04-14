@@ -1,14 +1,14 @@
 main {
   margin: auto;
   max-width: 900px;
-  padding: 0 50px 20px 50px;
+  padding: 0 100px 20px 100px;
 }
 
 body {
   font-family: "Georgia", "Times New Roman", serif;	/* fallback fonts */
   color: #404040; /*#2c2c2e;		/* Dark gray */
   background-color: #fbfbfb;	/* Light gray */
-  font-size: 100%;  /*1.1em;*/
+  font-size: 1.1em;
   line-height: 1.2;
   margin: 0;
 }
