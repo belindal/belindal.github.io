@@ -118,6 +118,14 @@ a {
   text-decoration: none;	/* no underline */
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 p {
   text-align: left;
   margin-bottom: 20px;
