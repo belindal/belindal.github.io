@@ -6,14 +6,13 @@ var selected_idxs = new Set();
 var saved_times = [];
 var actions = [];
 
-var countdown = 30 * 60 * 1000;
+var countdown = 1000;//30 * 60 * 1000;
 var timerId = setInterval(function(){
   countdown -= 1000;
   var min = Math.floor(countdown / (60 * 1000));
-  //var sec = Math.floor(countdown - (min * 60 * 1000));  // wrong
-  var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
+  var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
 
-  if (countdown <= 0) {
+  if (countdown <= 0 && typeof dataset_idx !== 'undefined') {  // only end if we're on an experiments page
      clearInterval(timerId);
      end();
   } else {
@@ -98,11 +97,41 @@ function setup_experiments() {
    last_display_time = Date.now();
  }
  
+ function compute_average_times() {
+  sum_pair = 0;
+  sum_dis = 0;
+  num_pair = 0;
+  num_dis = 0;
+  for (var i = 0; i < saved_times.length; i++) {
+    if (saved_times[i][1] === "pair_no" || saved_times[i][1] === "pair_yes") {
+     sum_pair += (saved_times[i][3] - saved_times[i][2]);
+     num_pair++;
+   } else {
+     sum_dis += saved_times[i];
+     num_dis++;
+   }
+  }
+
+  if (num_pair === 0) {
+    avg_pair = 0;
+  } else {
+    avg_pair = sum_pair / num_pair;
+  }
+  if (num_dis === 0) {
+   avg_dis = 0;
+  } else {
+   avg_dis = sum_dis / num_dis;
+  }
+  return [avg_pair, avg_dis];
+ }
+
  function end() {
-   log_output = "<h2>You're Done! But don't close this page just yet! Please copy the following and send it to me (belindazli65 [at] gmail.com):</h2>"
-   var i;
+   avg_times = compute_average_times();
+   log_output = "<h2>Congratulations! You're Done!</h2>";
+   log_output += "<p>Your average pairwise time: " + avg_times[0] / 1000 + "s.</p>";
+   log_output += "<p>Your average discrete time: " + avg_times[1] / 1000 + "s.</p>";
    var jsonstr = JSON.stringify([uid, saved_times]);
-   log_output += "<p>" + jsonstr + "</p>";
+  //  log_output += "<p>" + jsonstr + "</p>";
    document.getElementsByTagName("body")[0].innerHTML = log_output;
    sendInfo(saved_times, "final");
  }
