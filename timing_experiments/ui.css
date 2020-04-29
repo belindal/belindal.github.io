@@ -1,17 +1,25 @@
 #Yes {
   background-color:green;
   border: darkgreen solid thick;
+  color: white;
 }
 
 #No {
   background-color:red;
   border: darkred solid thick;
+  color: white;
 }
 
-input[type=button] {
+#Submit {
   background-color:slateblue;
   border: darkslateblue solid thick;
   color: white;
+}
+
+input[type=button] {
+  background-color:lightgray;
+  border: silver solid thick;
+  color: black;
   padding: 8px 16px;
   text-decoration: none;
   margin: 4px 2px;

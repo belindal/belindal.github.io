@@ -5,6 +5,18 @@ var discrete_q_mode = false;
 var selected_idxs = new Set();
 var saved_times = [];
 var actions = [];
+var serverAddress = "http://128.208.5.20:8080/receiver"
+var serverUp;
+$.getJSON(serverAddress,
+  function (data, textStatus, jqXHR) {  // success callback
+    serverUp = true;
+    console.log(data.greeting);
+  }
+).fail(function (jqxhr,settings,ex) {
+  serverUp = false;
+  console.log("Server is down, not sending user inputs to server.");
+});
+
 
 var countdown = 30 * 60 * 1000;
 var timerId = setInterval(function(){
@@ -140,11 +152,10 @@ function setup_experiments() {
    var jsonstr = JSON.stringify([uid, data, final_str]);
    // ajax the JSON to the server
    console.log(jsonstr);
-   $.post("http://128.208.5.20:8080/receiver", jsonstr, function() {
- 
-   });
-   // stop link reloading the page
-   //event.preventDefault();
+   if (serverUp) {
+     $.post(serverAddress, jsonstr, function() {
+     });
+   }
  }
  
  function undo() {
