@@ -19,19 +19,25 @@ $.getJSON(serverAddress,
 
 
 var countdown = 30 * 60 * 1000;
-var timerId = setInterval(function(){
-  countdown -= 1000;
-  var min = Math.floor(countdown / (60 * 1000));
-  var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
-
-  if (countdown <= 0 && typeof dataset_idx !== 'undefined') {  // only end if we're on an experiments page
-     clearInterval(timerId);
-     end();
-  } else {
-     $("#countTime").html(min + " : " + sec);
-  }
-
-}, 1000); //1000ms. = 1sec.
+var timerId = countdown;
+if (serverUp) {
+  timerId = setInterval(function(){
+    countdown -= 1000;
+    var min = Math.floor(countdown / (60 * 1000));
+    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
+  
+    if (countdown <= 0 && typeof dataset_idx !== 'undefined') {  // only end if we're on an experiments page
+       clearInterval(timerId);
+       end();
+    } else {
+       $("#countTime").html(min + " : " + sec);
+    }
+  
+  }, 1000); //1000ms. = 1sec.
+} else {
+  timerId = "0 : 00";
+  $("#countTime").html(0 + " : " + 00);
+}
 
 
 function setup_experiments() {
