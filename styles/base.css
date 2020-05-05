@@ -32,6 +32,13 @@ h1 {
   margin-block-end: 0;
 }
 
+h3 {
+  font-size: 1.25em;
+  padding: 0 0 0 0;	/* Top Right Bottom Left */
+  color: gray;
+  font-style: italic;
+}
+
 table.news .date {width: 150px; font-weight: bold;}
 
 table.news td {
