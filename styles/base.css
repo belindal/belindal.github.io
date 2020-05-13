@@ -33,11 +33,14 @@ h1 {
 }
 
 h3 {
-  font-size: 1.25em;
+  font-size: 1.5em;
   padding: 0 0 0 0;
-  color: gray;
-  /*font-weight: bold;*/
-  font-style: italic;
+  color: #ccc;
+  /*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+  /*font-family: Impact, Charcoal, sans-serif;*/
+  font-family: "BioRhyme", sans-serif;
+  font-weight: bold;
+  /*font-style: italic;*/
 }
 
 table.news .date {width: 150px; font-weight: bold;}
