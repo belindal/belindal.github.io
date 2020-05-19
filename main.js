@@ -10,18 +10,24 @@ function show_email(id) {
   }
 }
 
+var id_to_bibs = new Map([
+  ["al_coref_bib", `@InProceedings{li2020active,
+    title={Active Learning for Coreference Resolution using Discrete Annotation},
+    author={Belinda Z. Li, Gabriel Stanovsky, Luke Zettlemoyer},
+    year={2020},
+    eprint={2004.13671},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    publisher = {Association for Computational Linguistics}
+}`],
+])
+
 function show_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
-    document.getElementById(id).innerHTML = `@InProceedings{li2020active,<br>\
-    title={Active Learning for Coreference Resolution using Discrete Annotation},<br>\
-    author={Belinda Z. Li, Gabriel Stanovsky, Luke Zettlemoyer}, \
-    year={2020}, \
-    eprint={2004.13671}, \
-    archivePrefix={arXiv}, \
-    primaryClass={cs.CL}, \
-    publisher = {Association for Computational Linguistics} \
-}`
+    var bib = id_to_bibs.get(id)
+
+    document.getElementById(id).innerHTML = `<textarea rows="10" width=100%>${bib}</textarea>`
   } else {
     document.getElementById(id).innerHTML = "";
   }
