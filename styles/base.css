@@ -122,7 +122,11 @@ li {
   margin-bottom: 20px;
 }
 
-img {
+img#profile {
+  min-width: 150px;
+  width: 20%;
+  float: right;
+  margin: 15px 0 20px 20px;
   display: block;
   border: 1px solid #ddd;	/* Size Style Color (gray) */
 }

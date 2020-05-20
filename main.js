@@ -25,10 +25,21 @@ var id_to_bibs = new Map([
 function show_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
-    var bib = id_to_bibs.get(id)
+    var bib = id_to_bibs.get(id);
 
-    document.getElementById(id).innerHTML = `<textarea rows="10" width=100%>${bib}</textarea>`
+    document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="10" width=100%>${bib}</textarea>`;
   } else {
     document.getElementById(id).innerHTML = "";
   }
 }
+
+function copy_bib(id) {
+  textarea_id = "textarea_" + id + "_bib";
+  if (document.getElementById(id + '_bib').innerHTML === "") {
+    show_bib(id);
+  }
+  let textarea = document.getElementById(textarea_id);
+  textarea.select();
+  document.execCommand("copy");
+}
+

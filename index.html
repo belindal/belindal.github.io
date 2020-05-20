@@ -28,10 +28,11 @@
     <main>
       <section>
         <h1> Belinda Li </h1>
+        <!--<span style="color:gray"><em>Software Engineer, Facebook AI</em>-->
         <!-- <a href='index.html'>Home</a> || <a href='CV.pdf'>CV</a> -->
       </section>
       <section>
-        <a href='main.jpg'><img src='main_cropped_2.png' width=200 alt='Belinda Li' style="float:right; margin:15px 0 20px 20px" /></a>
+        <a href='main.jpg'><img src='main_cropped_2.png' id="profile" alt='Hey' /></a>
         <!--<h2>Intro</h2>-->
         <p>Hi! I am a software engineer at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, where I work on applying state-of-the-art techniques from AI and NLP research to combat integrity problems faced by Facebook. 
         I also do (more pure) research in natural language processing.</p>
@@ -99,7 +100,7 @@
                 <a href="https://arxiv.org/abs/2004.13671">[Paper]</a>
                 <a href="https://github.com/belindal/discrete-active-learning-coref">[Code]</a>
                 <a href="./timing_experiments">[Demo (Timing Experiments)]</a>
-                <a onclick="show_bib('al_coref')" href="javascript:void(0);">[Bib]</a>
+                <a onclick="show_bib('al_coref')" href="javascript:void(0);">[Bib <a style="color:#D81B60;" onclick="copy_bib('al_coref')" href="javascript:void(0);"><em>( COPY )</em><a>]</a>
                 <br>
                 <div id="al_coref_bib" class=bib></div>
             </li>
