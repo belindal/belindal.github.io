@@ -19,23 +19,26 @@ var id_to_bibs = new Map([
     archivePrefix={arXiv},
     primaryClass={cs.LG}
 }`],
-  ["lm_fact_bib", `@InProceedings{lee2020language,
+  ["lm_fact_bib",
+      `@InProceedings{lee2020language,
     title={Language Models as Fact Checkers?},
     author={Nayeon Lee and Belinda Z. Li and Sinong Wang and Wen-tau Yih and Hao Ma and Madian Khabsa},
     year={2020},
     eprint={2006.04102},
     archivePrefix={arXiv},
-    primaryClass={cs.CL}
-    publisher = {ACL Workshop on Fact Extraction and VERification}
+    primaryClass={cs.CL},
+    booktitle={Proceedings of the Second Workshop on Fact Extraction and VERification (FEVER)},
+    pages={(to appear)},
 }`],
   ["al_coref_bib", `@InProceedings{li2020active,
     title={Active Learning for Coreference Resolution using Discrete Annotation},
-    author={Belinda Z. Li, Gabriel Stanovsky, Luke Zettlemoyer},
+    author={Belinda Z. Li and Gabriel Stanovsky and Luke Zettlemoyer},
     year={2020},
     eprint={2004.13671},
     archivePrefix={arXiv},
     primaryClass={cs.CL},
-    publisher = {Association for Computational Linguistics}
+    booktitle={Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL)},
+    pages={(to appear)},
 }`],
 ])
 
