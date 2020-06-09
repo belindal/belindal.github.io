@@ -11,6 +11,23 @@ function show_email(id) {
 }
 
 var id_to_bibs = new Map([
+  ["linformer_bib", `@misc{wang2020linformer,
+    title={Linformer: Self-Attention with Linear Complexity},
+    author={Sinong Wang and Belinda Li and Madian Khabsa and Han Fang and Hao Ma},
+    year={2020},
+    eprint={2006.04768},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}`],
+  ["lm_fact_bib", `@InProceedings{lee2020language,
+    title={Language Models as Fact Checkers?},
+    author={Nayeon Lee and Belinda Z. Li and Sinong Wang and Wen-tau Yih and Hao Ma and Madian Khabsa},
+    year={2020},
+    eprint={2006.04102},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+    publisher = {ACL Workshop on Fact Extraction and VERification}
+}`],
   ["al_coref_bib", `@InProceedings{li2020active,
     title={Active Learning for Coreference Resolution using Discrete Annotation},
     author={Belinda Z. Li, Gabriel Stanovsky, Luke Zettlemoyer},
