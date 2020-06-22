@@ -20,25 +20,34 @@ var id_to_bibs = new Map([
     primaryClass={cs.LG}
 }`],
   ["lm_fact_bib",
-      `@InProceedings{lee2020language,
-    title={Language Models as Fact Checkers?},
-    author={Nayeon Lee and Belinda Z. Li and Sinong Wang and Wen-tau Yih and Hao Ma and Madian Khabsa},
-    year={2020},
-    eprint={2006.04102},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL},
-    booktitle={Proceedings of the Second Workshop on Fact Extraction and VERification (FEVER)},
-    pages={(to appear)},
+      `@inproceedings{lee-etal-2020-language,
+    title = "Language Models as Fact Checkers?",
+    author = "Lee, Nayeon  and
+      Li, Belinda  and
+      Wang, Sinong  and
+      Yih, Wen-tau  and
+      Ma, Hao  and
+      Khabsa, Madian",
+    booktitle = "Proceedings of the Third Workshop on Fact Extraction and VERification (FEVER)",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.fever-1.5",
+    pages = "36--41",
 }`],
-  ["al_coref_bib", `@InProceedings{li2020active,
-    title={Active Learning for Coreference Resolution using Discrete Annotation},
-    author={Belinda Z. Li and Gabriel Stanovsky and Luke Zettlemoyer},
-    year={2020},
-    eprint={2004.13671},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL},
-    booktitle={Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL)},
-    pages={(to appear)},
+  ["al_coref_bib", `@inproceedings{li-etal-2020-active,
+    title = "Active Learning for Coreference Resolution using Discrete Annotation",
+    author = "Li, Belinda Z.  and
+      Stanovsky, Gabriel  and
+      Zettlemoyer, Luke",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.738",
+    pages = "8320--8331",
 }`],
 ])
 
@@ -46,8 +55,9 @@ function show_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
     var bib = id_to_bibs.get(id);
+    var num_lines = bib.split("\n").length;
 
-    document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="10" width=100%>${bib}</textarea>`;
+    document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="${num_lines}" width=100%>${bib}</textarea>`;
   } else {
     document.getElementById(id).innerHTML = "";
   }
