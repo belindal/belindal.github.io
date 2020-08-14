@@ -34,11 +34,10 @@
       <section>
         <a href='main.jpg'><img src='main_cropped_2.png' id="profile" alt='Hey' /></a>
         <!--<h2>Intro</h2>-->
-        <p>Hi! I am a software engineer at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, where I work on applying state-of-the-art techniques from AI and NLP research to combat integrity problems faced by Facebook. 
-        I also do (more pure) research in natural language processing.</p>
-        <p>Previously, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I was privileged to work with Professor <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>. You can view more in my CV <a href="./Academic_CV.pdf">here</a>.
+        <p>Hi! I am an incoming PhD student to <a href='https://www.csail.mit.edu/'>MIT</a>, where I will be working with <a href='https://web.mit.edu/jda/www/'>Jacob Andreas</a> at the <a href='https://lingo.csail.mit.edu/'>language & intelligence lab @ MIT</a>.</p>
+        <p>Previously, I spent an amazing year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, on the AI Integrity team, where I worked on applying state-of-the-art techniques from AI and NLP research to combat integrity problems faced by Facebook. I also did some (more pure) research in natural language processing. Before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I was fortunate to work with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>. You can view more in my CV <a href="./Academic_CV.pdf">here</a>.
         <!-- Before UW, I attended the <a href='https://robinsoncenter.uw.edu/programs/eep/' target='_blank'>Robinson Center&rsquo;s Transition School/Early Entrance Program</a>.</p> -->
-        <p>If you are an undergrad (especially at UW) looking for research experience in NLP or machine learning, please feel free to reach out to me! You can view my contact policy <a href='contact.html'>here</a>.</p>
+        <p>If you are an undergrad interested in NLP or machine learning research, please feel free to reach out to me! You can view my contact policy <a href='contact.html'>here</a>.</p>
 
         <center>
           <a onclick="show_email('email')" href="javascript:void(0);">Email</a>
@@ -93,7 +92,7 @@
                 <i>ArXiv Preprint</i>.
                 <br>
                 <a href="https://arxiv.org/abs/2006.04768">[Paper]</a>
-                <a onclick="show_bib('linformer')" href="javascript:void(0);">[Bib <a style="color:#D81B60;" onclick="copy_bib('linformer')" href="javascript:void(0);"><em>( COPY )</em><a>]</a>
+                <a onclick="toggle_bib('linformer')" href="javascript:void(0);">[<span id="linformer_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('linformer')" href="javascript:void(0);">Copy Bib]</a>
                 <br>
                 <div id="linformer_bib" class=bib></div>
             </li>
@@ -103,11 +102,11 @@
                 <br>
                 <a href='https://www.linkedin.com/in/nayeon7lee'>Nayeon Lee</a>, <b>Belinda Z. Li</b>, <a href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <a href='http://scottyih.org/'>Scott Yih</a>, <a href='https://www.haoma.io/'>Hao Ma</a>, and <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>
                 <br>
-                In <i>ACL Workshop on Fact Extraction and VERification (FEVER@ACL), 2020</a></i>, (<font color='red'>to appear</font>).
+                In <i>ACL Workshop on Fact Extraction and VERification (FEVER@ACL), 2020</a></i>.
                 <br>
                 <a href="https://www.aclweb.org/anthology/2020.fever-1.5/">[Paper]</a>
                 <a href="https://venturebeat.com/2020/06/09/facebook-researchers-propose-using-language-models-for-fact-checking/">[Press]</a>
-                <a onclick="show_bib('lm_fact')" href="javascript:void(0);">[Bib <a style="color:#D81B60;" onclick="copy_bib('lm_fact')" href="javascript:void(0);"><em>( COPY )</em><a>]</a>
+                <a onclick="toggle_bib('lm_fact')" href="javascript:void(0);">[<span id="lm_fact_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('lm_fact')" href="javascript:void(0);">Copy Bib]</a>
                 <br>
                 <div id="lm_fact_bib" class=bib></div>
             </li>
@@ -117,21 +116,23 @@
                 <br>
                 <b>Belinda Z. Li</b>, <a href="https://gabrielstanovsky.github.io/">Gabriel Stanovsky</a>, and <a href='https://www.cs.washington.edu/people/faculty/lsz'>Luke Zettlemoyer</a>
                 <br>
-                In <i>Annual Meeting of the Association for Computational Linguistics (ACL), 2020</a></i>, (<font color='red'>to appear</font>).
+                In <i>Annual Meeting of the Association for Computational Linguistics (ACL), 2020</a></i>.
                 <br>
                 <a href="https://www.aclweb.org/anthology/2020.acl-main.738/">[Paper]</a>
                 <a href="https://github.com/belindal/discrete-active-learning-coref">[Code]</a>
-                <a href="./timing_experiments">[Demo (Timing Experiments)]</a>
-                <a onclick="show_bib('al_coref')" href="javascript:void(0);">[Bib <a style="color:#D81B60;" onclick="copy_bib('al_coref')" href="javascript:void(0);"><em>( COPY )</em><a>]</a>
+                <a href="./timing_experiments">[Demo*]</a>
+                <a onclick="toggle_bib('al_coref')" href="javascript:void(0);">[<span id="al_coref_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('al_coref')" href="javascript:void(0);">Copy Bib]</a>
                 <br>
                 <div id="al_coref_bib" class=bib></div>
+                <em>*Timing experiments interface</em>
             </li>
         </ul>
       </section>
 
       <section>
         <h2>Service</h2>
-        <p><b>Program Committee (Reviewer)</b>: COLING 2020.</p>
+        <p><b>Student Volunteer</b>: ACL 2020.</p>
+        <p><b>Program Committee (Reviewer)</b>: EMNLP 2020, COLING 2020.</p>
       </section>
 
       <section>

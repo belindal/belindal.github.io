@@ -51,14 +51,16 @@ var id_to_bibs = new Map([
 }`],
 ])
 
-function show_bib(id) {
+function toggle_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
     var bib = id_to_bibs.get(id);
     var num_lines = bib.split("\n").length;
 
     document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="${num_lines}" width=100%>${bib}</textarea>`;
+    document.getElementById(id + "_text").innerHTML = `Hide`;
   } else {
+    document.getElementById(id + "_text").innerHTML = `Show`;
     document.getElementById(id).innerHTML = "";
   }
 }
@@ -66,7 +68,7 @@ function show_bib(id) {
 function copy_bib(id) {
   textarea_id = "textarea_" + id + "_bib";
   if (document.getElementById(id + '_bib').innerHTML === "") {
-    show_bib(id);
+    toggle_bib(id);
   }
   let textarea = document.getElementById(textarea_id);
   textarea.select();
