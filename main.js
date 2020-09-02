@@ -1,19 +1,15 @@
 function show_email(id) {
   if (document.getElementById(id).innerHTML === "") {
     document.getElementById(id).innerHTML = "bzl [at] mit.edu\n";
-    document.getElementById(id).innerHTML += "&emsp;OR&emsp;\n";
-    document.getElementById(id).innerHTML += "belindali [at] fb.com\n";
-    document.getElementById(id).innerHTML += "&emsp;OR&emsp;\n";
-    document.getElementById(id).innerHTML += "belindazli65 [at] gmail.com";
   } else {
     document.getElementById(id).innerHTML = "";
   }
 }
 
 var id_to_bibs = new Map([
-  ["linformer_bib", `@misc{wang2020linformer,
+  ["linformer_bib", `@misc{@misc{wang2020linformer,
     title={Linformer: Self-Attention with Linear Complexity},
-    author={Sinong Wang and Belinda Li and Madian Khabsa and Han Fang and Hao Ma},
+    author={Sinong Wang and Belinda Z. Li and Madian Khabsa and Han Fang and Hao Ma},
     year={2020},
     eprint={2006.04768},
     archivePrefix={arXiv},
