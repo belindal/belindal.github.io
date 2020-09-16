@@ -1,13 +1,5 @@
-function show_email(id) {
-  if (document.getElementById(id).innerHTML === "") {
-    document.getElementById(id).innerHTML = "bzl [at] mit.edu\n";
-  } else {
-    document.getElementById(id).innerHTML = "";
-  }
-}
-
 var id_to_bibs = new Map([
-  ["linformer_bib", `@misc{@misc{wang2020linformer,
+  ["linformer_bib", `@misc{wang2020linformer,
     title={Linformer: Self-Attention with Linear Complexity},
     author={Sinong Wang and Belinda Z. Li and Madian Khabsa and Han Fang and Hao Ma},
     year={2020},
@@ -15,8 +7,7 @@ var id_to_bibs = new Map([
     archivePrefix={arXiv},
     primaryClass={cs.LG}
 }`],
-  ["lm_fact_bib",
-      `@inproceedings{lee-etal-2020-language,
+  ["lm_fact_bib", `@inproceedings{lee-etal-2020-language,
     title = "Language Models as Fact Checkers?",
     author = "Lee, Nayeon  and
       Li, Belinda  and
@@ -47,6 +38,25 @@ var id_to_bibs = new Map([
 }`],
 ])
 
+var news_entries = [
+    ["Sep 15, 2020", `Short paper on efficient entity linking for questions accepted to <a href="https://2020.emnlp.org/">EMNLP 2020</a>. Congrats to all coauthors!`],
+    ["Sep 01, 2020", `Joined MIT.`],
+    ["June 08, 2020", `We prove that self-attention is low rank and exploit it to create linear-time Transformers. Check out <a href="https://arxiv.org/abs/2006.04768">our paper</a>.`],
+    ["May 11, 2020", `Short paper on leveraging LMs for fact checking accepted to <a href="https://fever.ai/">FEVER workshop</a>. Congrats to first author Nayeon for the fine work.`],
+    ["Apr 05, 2020", `Happy to announce that I&rsquo;ll be starting my PhD this fall at MIT.`],
+    ["Apr 03, 2020", `Short paper on active learning for coreference resolution accepted to <a href="https://acl2020.org/">ACL 2020</a>. (First publication! 🎉) Congrats and thanks to my amazing coauthors, Gabi and Luke!`],
+    ["Aug 19, 2019", `Joined Facebook.`],
+]
+var curr_news_cutoff = 3
+
+function show_email(id) {
+  if (document.getElementById(id).innerHTML === "") {
+    document.getElementById(id).innerHTML = "bzl [at] mit.edu\n";
+  } else {
+    document.getElementById(id).innerHTML = "";
+  }
+}
+
 function toggle_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
@@ -69,5 +79,47 @@ function copy_bib(id) {
   let textarea = document.getElementById(textarea_id);
   textarea.select();
   document.execCommand("copy");
+}
+
+function display_recent_news() {
+    var news_entries_text = ``
+    for (var i=0; i<curr_news_cutoff; i++) {
+        //console.log(news_entries[i]);
+        news_entries_text += `
+             <tr>
+               <td class="date">${news_entries[i][0]}</td>
+               <td>${news_entries[i][1]}</td>
+             </tr>
+        `;
+    }
+    document.getElementById("recent_news").innerHTML = `
+          <table class="news">
+            <tbody>${news_entries_text}</tbody>
+          </table>
+    `;
+}
+
+function toggle_older_news() {
+  if (document.getElementById("news_button_text").innerHTML === "[Expand All]") {
+    var news_entries_text = ``
+    for (var i=curr_news_cutoff; i<news_entries.length; i++) {
+      //console.log(news_entries[i][0])
+      news_entries_text += `
+                <tr>
+                  <td class="date">${news_entries[i][0]}</td>
+                  <td>${news_entries[i][1]}</td>
+                </tr>
+      `
+    }
+    document.getElementById("older_news").innerHTML = `
+          <table class="news">
+            <tbody>${news_entries_text}</tbody>
+          </table>
+    `;
+    document.getElementById("news_button_text").innerHTML = `[Collapse]`;
+  } else {
+    document.getElementById("older_news").innerHTML = "";
+    document.getElementById("news_button_text").innerHTML = `[Expand All]`;
+  }
 }
 

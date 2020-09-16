@@ -32,55 +32,37 @@
         <!-- <a href='index.html'>Home</a> || <a href='CV.pdf'>CV</a> -->
       </section>
       <section>
-        <a href='main.jpg'><img src='main_cropped_2.png' id="profile" alt='Hey' /></a>
+        <a href='main.jpg' target='_blank'><img src='main_cropped.png' id="profile" alt='Hey' /></a>
         <!--<h2>Intro</h2>-->
-        <p>Hi! I am a first-year PhD student at <a href='https://www.csail.mit.edu/'>MIT</a>, affiliated with the <a href='https://lingo.csail.mit.edu/'>language & intelligence lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/'>Jacob Andreas</a>.</p>
-        <p>Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, on the AI Integrity team, where I worked on applying state-of-the-art techniques from AI and NLP research to combat integrity problems (i.e. hate speech) on Facebook. Before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>. You can view more in my CV <a href="./Academic_CV.pdf">here</a>.
+        <p>I am a first-year PhD student at <a href='https://www.csail.mit.edu/' target='_blank'>MIT</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>.</p>
+        <p>Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a> on the AI Integrity team. There I worked on applying state-of-the-art techniques from AI and NLP research to combat integrity problems (i.e. <a href='https://ai.facebook.com/blog/ai-advances-to-better-detect-hate-speech/' target='_blank'>hate speech</a>) on Facebook.
+        Before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
+        You can view more in my CV <a href="./Academic_CV.pdf" target='_blank'>here</a>.
         <!-- Before UW, I attended the <a href='https://robinsoncenter.uw.edu/programs/eep/' target='_blank'>Robinson Center&rsquo;s Transition School/Early Entrance Program</a>.</p> -->
+        <p>I am broadly interested in approaching NLP in a more systematic manner, motivated by linguistic, cognitive, or philosophical principles.
+        <!-- Concretely, this encompasses work in ... I view computational models both as a tool to inquire into and {something we build to emulate} the fundamental natures of language and language learning itself.</p> -->
+        <p>Things I've worked on previously (which I am still interested in!): resource-efficient models and techniques, question answering, information extraction, model pretraining, AI for social good (i.e. hate speech or misinformation detection).</p>
         <p>If you are an undergrad interested in NLP or machine learning research, please feel free to reach out to me! You can view my contact policy <a href='contact.html'>here</a>.</p>
 
         <center>
           <a onclick="show_email('email')" href="javascript:void(0);">Email</a>
-          // <a href = "https://github.com/belindal">Github</a>
-          // <a href = "https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en">Google Scholar</a>
-          // <a href = "https://www.linkedin.com/in/belinda-li-6a2813106">LinkedIn</a>
-          // <a href = "https://twitter.com/belindazli">Twitter</a>
+          // <a href = "https://github.com/belindal" target='_blank'>Github</a>
+          // <a href = "https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en" target='_blank'>Google Scholar</a>
+          // <a href = "https://www.linkedin.com/in/belinda-li-6a2813106" target='_blank'>LinkedIn</a>
+          // <a href = "https://twitter.com/belindazli" target='_blank'>Twitter</a>
           <br>
         </center>
         <div id="email"></div>
       </section>
 
       <section class="news">
-        <h2>News</h2>
-        <table class="news">
-          <tbody>
-            <tr>
-              <td class="date">Sep 1, 2020</td>
-              <td>Joined MIT.</td>
-            </tr>
-            <tr>
-              <td class="date">June 8, 2020</td>
-              <td>We prove that self-attention is low rank and exploit it to create <a href="https://arxiv.org/abs/2006.04768">linear-time Transformers</a>.</td>
-            </tr>
-            <tr>
-              <td class="date">May 11, 2020</td>
-              <td>Short paper on leveraging LMs for fact checking accepted to <a href="https://fever.ai/">FEVER workshop</a>. Congrats to first author Nayeon for the fine work.</td>
-            </tr>
-            <tr>
-              <td class="date">Apr 05, 2020</td>
-              <td>Happy to announce that I&rsquo;ll be starting my PhD this fall at MIT.</td>
-            </tr>
-            <tr>
-              <td class="date">Apr 03, 2020</td>
-              <td>Short paper on active learning for coreference resolution accepted to <a href="https://acl2020.org/">ACL 2020</a>. (First publication! 🎉) Congrats and thanks to my wonderful coauthors, Gabi and Luke.</td>
-            </tr>
-            <tr>
-              <td class="date">Aug 19, 2019</td>
-              <td>Joined Facebook.</td>
-            </tr>
-          </tbody>
-
-        </table>
+        <h2>Recent News</h2>
+        <div id="recent_news"></div>
+        <script type="text/javascript">
+           display_recent_news();
+        </script>
+        <div id="older_news"></div>
+        <a onclick="toggle_older_news()" href="javascript:void(0);"><span id="news_button_text">[Expand All]</span></a>
       </section>
 
       <section>
@@ -89,9 +71,19 @@
         <h3>2020</h3>
         <ul>
             <li>
+                <b>Efficient One-Pass End-to-End Entity Linking for Questions</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a href='https://shmsw25.github.io/'>Sewon Min</a>, <a href='http://sriniiyer.github.io/'>Srinivasan Iyer</a>, <a href='https://www.linkedin.com/in/yasharmehdad/'>Yashar Mehdad</a>, and <a href='http://scottyih.org/'>Wen-tau Yih</a>
+                <br>
+                Accepted to <i>Empirical Methods in Natural Language Processing (EMNLP), 2020</i>.
+                <br>
+                <span style='color:red;font-style:italic'>Manuscript forthcoming.</span>
+            </li>
+
+            <li>
                 <b>Linformer: Self-Attention with Linear Complexity</b>
                 <br>
-                <a href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <b>Belinda Z. Li</b>, <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>, <a href='https://www.hanfang.info/'>Han Fang</a> and <a href='https://www.haoma.io/'>Hao Ma</a>
+                <a href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <b>Belinda Z. Li</b>, <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>, <a href='https://www.hanfang.info/'>Han Fang</a>, and <a href='https://www.haoma.io/'>Hao Ma</a>
                 <br>
                 <i>ArXiv Preprint</i>.
                 <br>
@@ -104,7 +96,7 @@
             <li>
                 <b>Language Models as Fact Checkers?</b>
                 <br>
-                <a href='https://www.linkedin.com/in/nayeon7lee'>Nayeon Lee</a>, <b>Belinda Li</b>, <a href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <a href='http://scottyih.org/'>Scott Yih</a>, <a href='https://www.haoma.io/'>Hao Ma</a>, and <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>
+                <a href='https://www.linkedin.com/in/nayeon7lee'>Nayeon Lee</a>, <b>Belinda Li</b>, <a href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <a href='http://scottyih.org/'>Wen-tau Yih</a>, <a href='https://www.haoma.io/'>Hao Ma</a>, and <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>
                 <br>
                 In <i>ACL Workshop on Fact Extraction and VERification (FEVER@ACL), 2020</a></i>.
                 <br>
@@ -141,8 +133,7 @@
 
       <section>
       <h2>Misc</h2>
-      <!-- <p>My original interest in language was rooted in philosophy: particularly the interplay of language and social &ldquo;power structures&rdquo; (Foucault), as well as the way linguistic symbols themselves are socially-defined &ldquo;systems of differences&rdquo; (Derrida). I find the idea of &ldquo;teaching a machine to understand language&rdquo; itself fundamentally, philosophically interesting.
-          Of course NLP is generally quite different from philosophies of language...</p> -->
+      <!-- <p>My original interest in language was rooted in philosophy: particularly the interplay of language and social &ldquo;power structures&rdquo; (Foucault), as well as the way linguistic symbols themselves are socially-defined &ldquo;systems of differences&rdquo; (Derrida). Thus, the idea of &ldquo;teaching a machine to understand language&rdquo; itself fundamentally, philosophically interesting. -->
       <p>Outside of work, I dance ballet and Chinese classical dance at <a href='https://hengdadance.com/' target='_blank'>Hengda Dance Academy</a>.  <!-- Some dance pictures <a href='dance/index.html'>here</a>. --></p>
       <p>I also play the piano (though I've unfortunately been out of practice for a few years).</p> 
       <!--<p>I&rsquo;m also quite interested in national politics, and follow the electoral races fairly closely through political news as well as statistical aggregation sites like <a href='https://fivethirtyeight.com/' target='_blank'>FiveThirtyEight</a>. I&rsquo;m (cautiously) looking forward to the 2020 elections.
