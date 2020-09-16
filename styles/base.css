@@ -36,7 +36,7 @@ h3 {
   font-size: 1.7em;
   padding: 0 0 0 0;
   margin: 0;
-  color: #ccc;
+  color: #C2C0BF;
   /*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
   /*font-family: Impact, Charcoal, sans-serif;*/
   text-align: left;
@@ -89,7 +89,7 @@ section h2 {
   /*padding: 20px 0;	/* Vertical Horizontal */
   /*font-weight: bold;*/
   margin: 20px 0;
-  border-bottom: 2px solid #ccc;	/* Size Style Color (gray) */
+  border-bottom: 2px solid #C2C0BF;	/* Size Style Color (gray) */
 }
 
 #research_qs {
@@ -132,7 +132,7 @@ img#profile {
 }
 
 a {
-  color: #1084ff;		/* Blue */
+  color: #A31F34;		/* MIT Red */
   text-decoration: none;	/* no underline */
 }
 
