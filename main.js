@@ -1,4 +1,12 @@
 var id_to_bibs = new Map([
+  ["elq_bib", `@misc{li2020efficient,
+      title={Efficient One-Pass End-to-End Entity Linking for Questions}, 
+      author={Belinda Z. Li and Sewon Min and Srinivasan Iyer and Yashar Mehdad and Wen-tau Yih},
+      year={2020},
+      eprint={2010.02413},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}`],
   ["linformer_bib", `@misc{wang2020linformer,
     title={Linformer: Self-Attention with Linear Complexity},
     author={Sinong Wang and Belinda Z. Li and Madian Khabsa and Han Fang and Hao Ma},
