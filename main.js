@@ -1,11 +1,18 @@
 var id_to_bibs = new Map([
-  ["elq_bib", `@misc{li2020efficient,
-      title={Efficient One-Pass End-to-End Entity Linking for Questions}, 
-      author={Belinda Z. Li and Sewon Min and Srinivasan Iyer and Yashar Mehdad and Wen-tau Yih},
-      year={2020},
-      eprint={2010.02413},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+  ["elq_bib", `@inproceedings{li-etal-2020-efficient-one,
+    title = "Efficient One-Pass End-to-End Entity Linking for Questions",
+    author = "Li, Belinda Z.  and
+      Min, Sewon  and
+      Iyer, Srinivasan  and
+      Mehdad, Yashar  and
+      Yih, Wen-tau",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.emnlp-main.522",
+    pages = "6433--6441",
 }`],
   ["linformer_bib", `@misc{wang2020linformer,
     title={Linformer: Self-Attention with Linear Complexity},
