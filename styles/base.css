@@ -134,20 +134,22 @@ img#profile {
   float: right;
   margin: 15px 0 20px 20px;
   display: block;
-  border: 1px solid #ddd;	/* Size Style Color (gray) */
+  border: 1px solid #c2c0bf;	/* Size Style Color */
 }
 
 a {
-  color: #3185FC;
+  color: #1f49a3;
   text-decoration: none;	/* no underline */
 }
 
 a:hover {
   text-decoration: underline;
+  color: #a3981f;
 }
 
 a:active {
   text-decoration: underline;
+  color: #a3981f;
 }
 
 p {
