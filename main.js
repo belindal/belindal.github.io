@@ -1,4 +1,12 @@
 var id_to_bibs = new Map([
+  ["qa_mask_bib", `@misc{ye2020studying,
+      title={Studying Strategically: Learning to Mask for Closed-book QA}, 
+      author={Qinyuan Ye and Belinda Z. Li and Sinong Wang and Benjamin Bolte and Hao Ma and Xiang Ren and Wen-tau Yih and Madian Khabsa},
+      year={2020},
+      eprint={2012.15856},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}`],
   ["elq_bib", `@inproceedings{li-etal-2020-efficient-one,
     title = "Efficient One-Pass End-to-End Entity Linking for Questions",
     author = "Li, Belinda Z.  and
