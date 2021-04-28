@@ -1,4 +1,20 @@
 var id_to_bibs = new Map([
+  ["unifiedm2_bib", `@misc{lee2021unifying,
+      title={On Unifying Misinformation Detection}, 
+      author={Nayeon Lee and Belinda Z. Li and Sinong Wang and Pascale Fung and Hao Ma and Wen-tau Yih and Madian Khabsa},
+      year={2021},
+      eprint={2104.05243},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}`],
+  ["pretrain_mask_policy_bib", `@misc{ye2021influence,
+      title={On the Influence of Masking Policies in Intermediate Pre-training}, 
+      author={Qinyuan Ye and Belinda Z. Li and Sinong Wang and Benjamin Bolte and Hao Ma and Wen-tau Yih and Xiang Ren and Madian Khabsa},
+      year={2021},
+      eprint={2104.08840},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}`],
   ["qa_mask_bib", `@misc{ye2020studying,
       title={Studying Strategically: Learning to Mask for Closed-book QA}, 
       author={Qinyuan Ye and Belinda Z. Li and Sinong Wang and Benjamin Bolte and Hao Ma and Xiang Ren and Wen-tau Yih and Madian Khabsa},
@@ -62,6 +78,7 @@ var id_to_bibs = new Map([
 ])
 
 var news_entries = [
+    ["Mar 23, 2021", `I&rsquo;ve been awarded funding from the NSF GRFP!`],
     ["Sep 15, 2020", `Short paper on efficient entity linking for questions accepted to <a href="https://2020.emnlp.org/">EMNLP 2020</a>. Congrats to all coauthors!`],
     ["Sep 01, 2020", `Joined MIT.`],
     ["June 08, 2020", `We prove that self-attention is low rank and exploit it to create linear-time Transformers. Check out <a href="https://arxiv.org/abs/2006.04768">our paper</a>.`],
@@ -84,9 +101,9 @@ function toggle_bib(id) {
   id += "_bib"
   if (document.getElementById(id).innerHTML === "") {
     var bib = id_to_bibs.get(id);
-    var num_lines = bib.split("\n").length;
+    var num_lines = bib.split("\n").length+1;
 
-    document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="${num_lines}" width=100%>${bib}</textarea>`;
+    document.getElementById(id).innerHTML = `<textarea readonly id="textarea_${id}" rows="${num_lines}" width=100%>${bib}</textarea><div>⠀</div>`;
     document.getElementById(id + "_text").innerHTML = `Hide`;
   } else {
     document.getElementById(id + "_text").innerHTML = `Show`;
