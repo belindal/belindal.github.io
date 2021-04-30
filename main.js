@@ -78,7 +78,7 @@ var id_to_bibs = new Map([
 ])
 
 var news_entries = [
-    ["Mar 23, 2021", `I&rsquo;ve been awarded funding from the NSF GRFP!`],
+    ["Apr 2021", `I&rsquo;ve been selected for the <a href="https://www.nsfgrfp.org/" target="_blank">NSF GRFP</a> and the <a href="https://ndseg.sysplus.com/" target="_blank">NDSEG Fellowship</a>!`],
     ["Sep 15, 2020", `Short paper on efficient entity linking for questions accepted to <a href="https://2020.emnlp.org/">EMNLP 2020</a>. Congrats to all coauthors!`],
     ["Sep 01, 2020", `Joined MIT.`],
     ["June 08, 2020", `We prove that self-attention is low rank and exploit it to create linear-time Transformers. Check out <a href="https://arxiv.org/abs/2006.04768">our paper</a>.`],
