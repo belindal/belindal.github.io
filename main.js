@@ -1,11 +1,21 @@
 var id_to_bibs = new Map([
-  ["unifiedm2_bib", `@misc{lee2021unifying,
-      title={On Unifying Misinformation Detection}, 
-      author={Nayeon Lee and Belinda Z. Li and Sinong Wang and Pascale Fung and Hao Ma and Wen-tau Yih and Madian Khabsa},
-      year={2021},
-      eprint={2104.05243},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI}
+  ["unifiedm2_bib", `@inproceedings{lee-etal-2021-unifying,
+    title = "On Unifying Misinformation Detection",
+    author = "Lee, Nayeon  and
+      Li, Belinda Z.  and
+      Wang, Sinong  and
+      Fung, Pascale  and
+      Ma, Hao  and
+      Yih, Wen-tau  and
+      Khabsa, Madian",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2021.naacl-main.432",
+    pages = "5479--5485",
+    abstract = "In this paper, we introduce UnifiedM2, a general-purpose misinformation model that jointly models multiple domains of misinformation with a single, unified setup. The model is trained to handle four tasks: detecting news bias, clickbait, fake news, and verifying rumors. By grouping these tasks together, UnifiedM2 learns a richer representation of misinformation, which leads to state-of-the-art or comparable performance across all tasks. Furthermore, we demonstrate that UnifiedM2{'}s learned representation is helpful for few-shot learning of unseen misinformation tasks/datasets and the model{'}s generalizability to unseen events.",
 }`],
   ["pretrain_mask_policy_bib", `@misc{ye2021influence,
       title={On the Influence of Masking Policies in Intermediate Pre-training}, 
