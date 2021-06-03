@@ -1,4 +1,12 @@
 var id_to_bibs = new Map([
+  ["state_probes_bib", `@misc{li2021implicit,
+      title={Implicit Representations of Meaning in Neural Language Models}, 
+      author={Belinda Z. Li and Maxwell Nye and Jacob Andreas},
+      year={2021},
+      eprint={2106.00737},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}`],
   ["unifiedm2_bib", `@inproceedings{lee-etal-2021-unifying,
     title = "On Unifying Misinformation Detection",
     author = "Lee, Nayeon  and
@@ -14,8 +22,7 @@ var id_to_bibs = new Map([
     address = "Online",
     publisher = "Association for Computational Linguistics",
     url = "https://www.aclweb.org/anthology/2021.naacl-main.432",
-    pages = "5479--5485",
-    abstract = "In this paper, we introduce UnifiedM2, a general-purpose misinformation model that jointly models multiple domains of misinformation with a single, unified setup. The model is trained to handle four tasks: detecting news bias, clickbait, fake news, and verifying rumors. By grouping these tasks together, UnifiedM2 learns a richer representation of misinformation, which leads to state-of-the-art or comparable performance across all tasks. Furthermore, we demonstrate that UnifiedM2{'}s learned representation is helpful for few-shot learning of unseen misinformation tasks/datasets and the model{'}s generalizability to unseen events.",
+    pages = "5479--5485"
 }`],
   ["pretrain_mask_policy_bib", `@misc{ye2021influence,
       title={On the Influence of Masking Policies in Intermediate Pre-training}, 
