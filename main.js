@@ -95,6 +95,7 @@ var id_to_bibs = new Map([
 ])
 
 var news_entries = [
+    ["June 2021", `New preprint on <a href="https://arxiv.org/abs/2106.00737" target="_blank">how language models represent meaning</a>, accepted to ACL! I will also be talking about it at <a href="https://primer.ai/" target="_blank">Primer AI</a> and <a href="https://deepmind.com/">DeepMind</a>.`],
     ["Apr 2021", `I&rsquo;ve been selected for the <a href="https://www.nsfgrfp.org/" target="_blank">NSF GRFP</a> and the <a href="https://ndseg.sysplus.com/" target="_blank">NDSEG Fellowship</a>!`],
     ["Sep 15, 2020", `Short paper on efficient entity linking for questions accepted to <a href="https://2020.emnlp.org/">EMNLP 2020</a>. Congrats to all coauthors!`],
     ["Sep 01, 2020", `Joined MIT.`],
