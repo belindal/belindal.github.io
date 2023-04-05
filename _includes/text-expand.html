@@ -1,0 +1,26 @@
+<script>
+    
+    function toggle_element(element_id) {
+        element = document.getElementById("hidden_"+element_id);
+        element.style.display = (element.style.display == 'none') ? 'block' : 'none';
+        element.style.height = 'auto';
+
+        button = document.getElementById("button_"+element_id);
+        if (button != null) {
+            button.innerHTML = (element.style.display == 'none') ? '[Show more]' : "[Show less]";
+        }
+    }
+    var elements = document.querySelectorAll('p');
+
+    Array.prototype.forEach.call(elements, function(el, i){
+        if(el.innerHTML.startsWith('[expand ') && el.innerHTML.endsWith(']')) {
+            html_content = el.innerHTML.slice(8,el.innerHTML.length-1).replace(" ", "_");
+            var parentcontent = el.parentNode.innerHTML.replace(
+                `<p>[expand ${html_content}]</p>`,
+                `<a id="button_${html_content}" style="cursor: pointer;" onclick="toggle_element('${html_content}')">[Show more]</a><div class="expand" id="hidden_${html_content}" style="display: none; height: 0; overflow: hidden;">`,
+            ).replace(`<p>[/expand ${html_content}]</p>`,'</div>');
+            el.parentNode.innerHTML = parentcontent;
+        }
+    });
+
+</script>

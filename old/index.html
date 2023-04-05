@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Belinda Zou Li</title>
+    <link rel='stylesheet' href='./styles/base.css' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fanwood+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133669415-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-133669415-1');
+    </script>
+    <script src='main.js'></script>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1> Belinda Li </h1>
+        <!--<span style="color:gray"><em>Software Engineer, Facebook AI</em>-->
+        <!-- <a href='index.html'>Home</a> || <a href='CV.pdf'>CV</a> -->
+      </section>
+      <section>
+        <a href='main.jpg' target='_blank'><img src='main_cropped.png' id="profile" alt='Hey' /></a>
+        <!--<h2>Intro</h2>-->
+        <p>I am a third-year PhD student at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>. I am funded by an <a href='https://ndseg.sysplus.com/NDSEG/about/' target='_blank'>NDSEG Fellowship</a> and <a href='https://www.hluce.org/programs/clare-boothe-luce-program/' target='_blank'>Clare Boothe Luce Graduate Fellowship</a> [<a href='https://news.mit.edu/2021/aziza-almanakly-belinda-li-receive-clare-boothe-luce-graduate-fellowship-women-0827' target='_blank'>Press</a>].</p>
+        <p>Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a> on the AI Integrity team. There I worked on applying state-of-the-art techniques from AI and NLP research to combat integrity problems (i.e. <a href='https://ai.facebook.com/blog/ai-advances-to-better-detect-hate-speech/' target='_blank'>hate speech</a>) on Facebook.
+        Before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
+        You can view more in my CV <a href="./Li_Belinda_Zou_CV.pdf" target='_blank'>here</a>.
+        <!-- Before UW, I attended the <a href='https://robinsoncenter.uw.edu/programs/eep/' target='_blank'>Robinson Center&rsquo;s Transition School/Early Entrance Program</a>.</p> -->
+        <p>If you are an undergrad interested in NLP or machine learning research, please feel free to reach out to me! You can view my contact policy <a href='contact.html'>here</a>.</p>
+
+        <center>
+          <a onclick="show_email('email')" href="javascript:void(0);">Email</a>
+          // <a href = "https://github.com/belindal" target='_blank'>Github</a>
+          // <a href = "https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en" target='_blank'>Google Scholar</a>
+          // <a href = "https://www.linkedin.com/in/belinda-li-6a2813106" target='_blank'>LinkedIn</a>
+          // <a href = "https://twitter.com/belindazli" target='_blank'>Twitter</a>
+          <br>
+        </center>
+        <div id="email"></div>
+      </section>
+
+      <!--<section class="news">
+        <h2>Recent News</h2>
+        <div id="recent_news"></div>
+        <script type="text/javascript">
+           display_recent_news();
+        </script>
+        <div id="older_news"></div>
+        <a onclick="toggle_older_news()" href="javascript:void(0);"><span id="news_button_text">[Expand All]</span></a>
+      </section>-->
+
+      <section>
+        <h2>Publications</h2>
+        <script type="text/javascript">
+           display_publications();
+        </script>
+       <h3>2022</h3>
+         <ul>
+            <li>
+                <b>Quantifying Adaptability in Pre-trained Language Models with 500 Tasks</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a href='https://www.linkedin.com/in/janeaisleyyu'>Jane Yu</a>, <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>, <a href='https://www.cs.washington.edu/people/faculty/lsz'>Luke Zettlemoyer</a>, <a href='https://homes.cs.washington.edu/~alon/'>Alon Halevy</a>, <a href='https://www.mit.edu/~jda/'>Jacob Andreas</a>
+                <br>
+                To appear in <i>North American Chapter of the Association for Computational Linguistics (NAACL), 2022</i>.
+                <br>
+                <a target='_blank' href="https://arxiv.org/abs/2112.03204">[Paper]</a>
+                <a target='_blank' href="https://github.com/belindal/TaskBench500">[Code]</a>
+                <a onclick="toggle_bib('taskbench')" href="javascript:void(0);">[<span id="taskbench_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('taskbench')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="taskbench_bib" class=bib></div>
+            </li>
+        </ul>
+        <h3>2021</h3>
+        <ul>
+            <li>
+                <b>Quantifying Adaptability in Pre-trained Language Models with 500 Tasks</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a href='https://www.linkedin.com/in/janeaisleyyu'>Jane Yu</a>, <a href='https://www.madiankhabsa.com/'>Madian Khabsa</a>, <a href='https://www.cs.washington.edu/people/faculty/lsz'>Luke Zettlemoyer</a>, <a href='https://homes.cs.washington.edu/~alon/'>Alon Halevy</a>, <a href='https://www.mit.edu/~jda/'>Jacob Andreas</a>
+                <br>
+                To appear in <i>North American Chapter of the Association for Computational Linguistics (NAACL), 2022</i>.
+                <br>
+                <a target='_blank' href="https://arxiv.org/abs/2112.03204">[Paper]</a>
+                <a target='_blank' href="https://github.com/belindal/TaskBench500">[Code]</a>
+                <a onclick="toggle_bib('taskbench')" href="javascript:void(0);">[<span id="taskbench_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('taskbench')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="taskbench_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>Implicit Representations of Meaning in Neural Language Models</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a href='https://maxwellnye.github.io/'>Maxwell Nye</a>, <a href='https://www.mit.edu/~jda/'>Jacob Andreas</a>
+                <br>
+                In <i>Association for Computational Linguistics (ACL), 2021</i>.
+                <br>
+                <a target='_blank' href="https://aclanthology.org/2021.acl-long.143/">[Paper]</a>
+                <a target='_blank' href="https://github.com/belindal/state-probes">[Code]</a>
+                <a onclick="toggle_bib('state_probes')" href="javascript:void(0);">[<span id="state_probes_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('state_probes')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="state_probes_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>On Unifying Misinformation Detection</b>
+                <br>
+                <a target='_blank' href='https://www.linkedin.com/in/nayeon7lee'>Nayeon Lee</a>, <b>Belinda Z. Li</b>, <a target='_blank' href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>,
+                <a target='_blank' href="https://pascale.home.ece.ust.hk/">Pascale Fung</a>, <a target='_blank' href='https://www.haoma.io/'>Hao Ma</a>,
+                <a target='_blank' href='http://scottyih.org/'>Wen-tau Yih</a>, and <a target='_blank' href='https://www.madiankhabsa.com/'>Madian Khabsa</a> 
+                <br>
+                In <i>North American Association for Computational Linguistics (NAACL), 2021</i>.
+                <br>
+                <a target='_blank' href="https://www.aclweb.org/anthology/2021.naacl-main.432/">[Paper]</a>
+                <a onclick="toggle_bib('unifiedm2')" href="javascript:void(0);">[<span id="unifiedm2_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('unifiedm2')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="unifiedm2_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>On the Influence of Masking Policies in Intermediate Pre-training</b>
+                <br>
+                <a target='_blank' href='http://yeqy.xyz/'>Qinyuan Ye</a>, <b>Belinda Z. Li</b>, <a target='_blank' href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>,
+                <a target='_blank' href="https://www.linkedin.com/in/benjaminbolte/">Benjamin Bolte</a>, <a target='_blank' href='https://www.haoma.io/'>Hao Ma</a>,
+                <a target='_blank' href='http://scottyih.org/'>Wen-tau Yih</a>, <a target='_blank' href='http://ink-ron.usc.edu/xiangren/'>Xiang Ren</a>, and <a target='_blank' href='https://www.madiankhabsa.com/'>Madian Khabsa</a> 
+                <br>
+                Accepted to <i>Empirical Methods for Natural Language Processing (EMNLP), 2021</i>.
+                <br>
+                <a target='_blank' href="https://arxiv.org/abs/2104.08840">[Paper]</a>
+                <a onclick="toggle_bib('pretrain_mask_policy')" href="javascript:void(0);">[<span id="pretrain_mask_policy_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('pretrain_mask_policy')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="pretrain_mask_policy_bib" class=bib></div>
+            </li>
+        </ul>
+
+
+        <h3>2020</h3>
+        <ul>
+            <li>
+                <b>Studying Strategically: Learning to Mask for Closed-book QA</b>
+                <br>
+                <a target='_blank' href='http://yeqy.xyz/'>Qinyuan Ye</a>, <b>Belinda Z. Li</b>, <a target='_blank' href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>,
+                <a target='_blank' href="https://www.linkedin.com/in/benjaminbolte/">Benjamin Bolte</a>, <a target='_blank' href='https://www.haoma.io/'>Hao Ma</a>,
+                <a target='_blank' href='http://scottyih.org/'>Wen-tau Yih</a>, <a target='_blank' href='http://ink-ron.usc.edu/xiangren/'>Xiang Ren</a>, and <a target='_blank' href='https://www.madiankhabsa.com/'>Madian Khabsa</a> 
+                <br>
+                <i>ArXiv Preprint</i>.
+                <br>
+                <a target='_blank' href="https://arxiv.org/abs/2012.15856">[Paper]</a>
+                <a onclick="toggle_bib('qa_mask')" href="javascript:void(0);">[<span id="qa_mask_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('qa_mask')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="qa_mask_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>Efficient One-Pass End-to-End Entity Linking for Questions</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a target='_blank' href='https://shmsw25.github.io/'>Sewon Min</a>, <a target='_blank' href='http://sriniiyer.github.io/'>Srinivasan Iyer</a>, <a target='_blank' href='https://www.linkedin.com/in/yasharmehdad/'>Yashar Mehdad</a>, and <a target='_blank' href='http://scottyih.org/'>Wen-tau Yih</a>
+                <br>
+                In <i>Empirical Methods in Natural Language Processing (EMNLP), 2020</i>.
+                <br>
+                <a target='_blank' href="https://www.aclweb.org/anthology/2020.emnlp-main.522/">[Paper]</a>
+                <a target='_blank' href="https://github.com/facebookresearch/BLINK/tree/master/elq">[Code]</a>
+                <a onclick="toggle_bib('elq')" href="javascript:void(0);">[<span id="elq_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('elq')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="elq_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>Linformer: Self-Attention with Linear Complexity</b>
+                <br>
+                <a target='_blank' href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <b>Belinda Z. Li</b>, <a target='_blank' href='https://www.madiankhabsa.com/'>Madian Khabsa</a>, <a target='_blank' href='https://www.hanfang.info/'>Han Fang</a>, and <a target='_blank' href='https://www.haoma.io/'>Hao Ma</a>
+                <br>
+                <i>ArXiv Preprint</i>.
+                <br>
+                <a target='_blank' href="https://arxiv.org/abs/2006.04768">[Paper]</a>
+                <a onclick="toggle_bib('linformer')" href="javascript:void(0);">[<span id="linformer_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('linformer')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="linformer_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>Language Models as Fact Checkers?</b>
+                <br>
+                <a target='_blank' href='https://www.linkedin.com/in/nayeon7lee'>Nayeon Lee</a>, <b>Belinda Z. Li</b>, <a target='_blank' href='https://www.linkedin.com/in/wang-sinong-194512a7/'>Sinong Wang</a>, <a target='_blank' href='http://scottyih.org/'>Wen-tau Yih</a>, <a target='_blank' href='https://www.haoma.io/'>Hao Ma</a>, and <a target='_blank' href='https://www.madiankhabsa.com/'>Madian Khabsa</a>
+                <br>
+                In <i>ACL Workshop on Fact Extraction and VERification (FEVER@ACL), 2020</a></i>.
+                <br>
+                <a target='_blank' href="https://www.aclweb.org/anthology/2020.fever-1.5/">[Paper]</a>
+                <a target='_blank' href="https://venturebeat.com/2020/06/09/facebook-researchers-propose-using-language-models-for-fact-checking/">[Press]</a>
+                <a onclick="toggle_bib('lm_fact')" href="javascript:void(0);">[<span id="lm_fact_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('lm_fact')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="lm_fact_bib" class=bib></div>
+            </li>
+
+            <li>
+                <b>Active Learning for Coreference Resolution using Discrete Annotation</b>
+                <br>
+                <b>Belinda Z. Li</b>, <a target='_blank' href="https://gabrielstanovsky.github.io/">Gabriel Stanovsky</a>, and <a target='_blank' href='https://www.cs.washington.edu/people/faculty/lsz'>Luke Zettlemoyer</a>
+                <br>
+                In <i>Annual Meeting of the Association for Computational Linguistics (ACL), 2020</i>.
+                <br>
+                <a target='_blank' href="https://www.aclweb.org/anthology/2020.acl-main.738/">[Paper]</a>
+                <a target='_blank' href="https://github.com/belindal/discrete-active-learning-coref">[Code]</a>
+                <a target='_blank' href="./timing_experiments">[Demo*]</a>
+                <a onclick="toggle_bib('al_coref')" href="javascript:void(0);">[<span id="al_coref_bib_text">Show</span> Bib</a><a> | </a><a onclick="copy_bib('al_coref')" href="javascript:void(0);">Copy Bib]</a>
+                <br>
+                <div id="al_coref_bib" class=bib></div>
+                <em>*Timing experiments interface</em>
+            </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Service</h2>
+        <p><b>Program Committee (Reviewer)</b>: ACL 2023. COLING 2022, 2020. EMNLP 2022, 2021, 2020.</p>
+        <p><b>Student Volunteer</b>: ACL 2020.</p>
+      </section>
+
+      <section>
+      <h2>Misc</h2>
+      <p>Outside of work, I dance ballet and Chinese classical dance at <a href='https://hengdadance.com/' target='_blank'>Hengda Dance Academy</a> and <a href='https://www.harvardballetcompany.org/' target='_blank'>Harvard Ballet Company</a>.</p>
+      <p>I also play the piano (though I've unfortunately been out of practice for a few years).</p> 
+      <p>I was fortunate to be part of the organizing effort to form the <a href='https://mitgsu.org/' target='_blank'>MIT Graduate Student Union</a>, which MIT graduate students recently voted in favor of by a 2-to-1 margin!</p>
+      <p>Noam Chomsky is my great(x3)-grand-advisor. <small>(Belinda Li &rarr; Jacob Andreas &rarr; Dan Klein &rarr; Chris Manning &rarr; Joan Bresnan &rarr; Noam Chomsky)</small></p>
+      <p>Under <i>very generous</i> definitions, my Erdős–Bacon number is 7. <small>(My Erdős number is 4 through several different paths. My Bacon number is 3 through <a href='https://www.youtube.com/watch?v=H2WWt24_t9w' target='_blank'>appearing in a video with Bernie Sanders</a>, who <a href='https://imgur.com/juqtv1c' target='_blank'>happens to have a Bacon number of 2</a>. Though dogmatic Bacon number purist will insist only movie appearances count.)</small> I eagerly welcome any collaborators &#8211; academic or entertainment &#8211; willing to lower that number.</p>
+      <p></p>
+      </section>
+    </main>
+  </body>
+</html>
