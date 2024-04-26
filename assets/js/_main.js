@@ -3,6 +3,10 @@
    ========================================================================== */
 
 $(function() {
+  $('#expandPapers').click(function() {
+    $('#papers').slideToggle('slow');
+  });
+
   // FitVids init
   $("#main").fitVids();
 

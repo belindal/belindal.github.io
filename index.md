@@ -11,15 +11,14 @@ I am funded by an <a href='https://ndseg.sysplus.com/NDSEG/about/' target='_blan
 Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, and before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
 You can view more in [my CV](./assets/pdfs/Li_Belinda_Zou_CV.pdf).
 
-<b>I am looking for a UROP to start in Fall semester 2024. Please email me and fill out [this form](https://forms.gle/yKERP4cy2TF6Zodm8) if you are a MIT undergraduate who is interested in UROPing with me!</b>
+**I am looking for a UROP to start in Fall semester 2024. Please email me and fill out [this form](https://forms.gle/yKERP4cy2TF6Zodm8) if you are a MIT undergraduate who is interested in UROPing with me!**
 
 
 # Representative Papers
-This list is updated very intermittently. For the latest, up-to-date list, please check my [Google Scholar](https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en).
 
 * [**Bayesian Preference Elicitation with Language Models**](https://arxiv.org/abs/2403.05534) \\
 Kunal Handa, Yarin Gal, Ellie Pavlick, Noah Goodman, Jacob Andreas, Alex Tamkin, Belinda Z. Li \\
-*ArXiv Prepring*
+*ArXiv Preprint*
 
 * [**Eliciting Human Preferences with Language Models**](https://arxiv.org/abs/2310.11589) \\
 Belinda Z. Li, Alex Tamkin, Noah Goodman, Jacob Andreas \\
@@ -33,12 +32,31 @@ Evan Hernandez, Belinda Z. Li, Jacob Andreas \\
 Belinda Z. Li, Maxwell Nye, Jacob Andreas \\
 *ACL*, 2021.
 
+<div id="papers" style="display: none;">
+# All Papers
 
-[expand papers]
+This list is updated very intermittently. For the latest, up-to-date list, please check my [Google Scholar](https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en).
+
+<!-- ## 2024 -->
+* [**Preference-Conditioned Language-Guided Abstraction**](https://dl.acm.org/doi/10.1145/3610977.3634930) \\
+Andi Peng, Andreea Bobu, Belinda Z Li, Theodore R Sumers, Ilia Sucholutsky, Nishanth Kumar, Thomas L Griffiths, Julie A Shah \\
+*HRI*, 2024
+
+* [**Bayesian Preference Elicitation with Language Models**](https://arxiv.org/abs/2403.05534) \\
+Kunal Handa, Yarin Gal, Ellie Pavlick, Noah Goodman, Jacob Andreas, Alex Tamkin\*, Belinda Z. Li\* \\
+*ArXiv Preprint*
+\* = Equal contribution
+
+* [**Learning with language-guided state abstractions**](https://arxiv.org/abs/2402.18759) \\
+Andi Peng, Ilia Sucholutsky\*, Belinda Z Li\*, Theodore R Sumers, Thomas L Griffiths, Jacob Andreas, Julie A Shah \\
+*ICLR*, 2024
+\* = Equal contribution
+
 <!-- ## 2023 -->
 * [**Eliciting Human Preferences with Language Models**](https://arxiv.org/abs/2310.11589) \\
-Belinda Z. Li, Alex Tamkin, Noah Goodman, Jacob Andreas \\
+Belinda Z. Li\*, Alex Tamkin\*, Noah Goodman, Jacob Andreas \\
 *ArXiv Preprint*
+\* = Equal contribution
 
 * [**Measuring and Manipulating Knowledge Representations in Language Models**](https://arxiv.org/abs/2304.00740) \\
 Evan Hernandez, Belinda Z. Li, Jacob Andreas \\
@@ -47,6 +65,10 @@ Evan Hernandez, Belinda Z. Li, Jacob Andreas \\
 * [**LaMPP: Language Models as Probabilistic Priors for Perception and Action**](https://arxiv.org/abs/2302.02801) \\
 Belinda Z. Li, William Chen, Pratyusha Sharma, Jacob Andreas \\
 *ArXiv Preprint*
+
+* [**Toward Interactive Dictation**](https://aclanthology.org/2023.acl-long.854/) \\
+Belinda Z Li, Jason Eisner, Adam Pauls, Sam Thomson \\
+*ACL*, 2023
 
 * [**Language Modeling with Latent Situations**](https://arxiv.org/abs/2212.10012) \\
 Belinda Z. Li, Maxwell Nye, Jacob Andreas \\
@@ -91,8 +113,8 @@ Nayeon Lee, Belinda Z. Li, Sinong Wang, Wen-tau Yih, Hao Ma, and Madian Khabsa \
 * [**Active Learning for Coreference Resolution using Discrete Annotation**](https://www.aclweb.org/anthology/2020.acl-main.738/) \\
 Belinda Z. Li, Gabriel Stanovsky, and Luke Zettlemoyer \\
 *ACL*, 2020
-
-[/expand papers]
+</div>
+<button id="expandPapers">Expand all papers</button>
 
 <p />
 
