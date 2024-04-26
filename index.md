@@ -114,7 +114,7 @@ Nayeon Lee, Belinda Z. Li, Sinong Wang, Wen-tau Yih, Hao Ma, and Madian Khabsa \
 Belinda Z. Li, Gabriel Stanovsky, and Luke Zettlemoyer \\
 *ACL*, 2020
 </div>
-<button id="expandPapers">Expand all papers</button>
+<button id="expandPapers" class="btn">Expand all papers</button>
 
 <p />
 
