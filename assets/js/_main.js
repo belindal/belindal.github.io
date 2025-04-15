@@ -3,8 +3,19 @@
    ========================================================================== */
 
 $(function() {
+  // Initially hide the papers section
+  $('#papers').hide();
+
   $('#expandPapers').click(function() {
-    $('#papers').slideToggle('slow');
+    var button = $(this); // Get a reference to the button
+    $('#papers').slideToggle('slow', function() {
+      // Check if the papers section is now visible
+      if ($('#papers').is(':visible')) {
+        button.text('Collapse Papers'); // Change text to Collapse
+      } else {
+        button.text('Expand Papers'); // Change text back to Expand (or original text)
+      }
+    });
   });
 
   // FitVids init

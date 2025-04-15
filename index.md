@@ -15,7 +15,6 @@ You can view more in [my CV](./assets/pdfs/Li_Belinda_Zou_CV.pdf).
 # Representative Papers
 
 * [**QuestBench: Can LLMs ask the right question to acquire information in reasoning tasks?**](https://arxiv.org/abs/2503.22674) \\
-\\
 Belinda Z. Li, Been Kim, Zi Wang \\
 *ArXiv Preprint*
 
@@ -36,7 +35,7 @@ Belinda Z. Li, Alex Tamkin, Noah Goodman, Jacob Andreas \\
 Belinda Z. Li, Maxwell Nye, Jacob Andreas \\
 *ACL*, 2021.
 
-<div id="papers" style="display: none;">
+<div id="papers">
 # All Papers
 
 This list is updated very intermittently. For the latest, up-to-date list, please check my [Google Scholar](https://scholar.google.com/citations?user=700fyvEAAAAJ&hl=en).
