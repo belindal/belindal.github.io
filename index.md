@@ -11,10 +11,18 @@ I am funded by an <a href='https://ndseg.sysplus.com/NDSEG/about/' target='_blan
 Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, and before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
 You can view more in [my CV](./assets/pdfs/Li_Belinda_Zou_CV.pdf).
 
-**I am looking for a UROP to start in Fall semester 2024. Please email me and fill out [this form](https://forms.gle/yKERP4cy2TF6Zodm8) if you are a MIT undergraduate who is interested in UROPing with me!**
-
 
 # Representative Papers
+
+* [**QuestBench: Can LLMs ask the right question to acquire information in reasoning tasks?**](https://arxiv.org/abs/2503.22674) \\
+\\
+Belinda Z. Li, Been Kim, Zi Wang \\
+*ArXiv Preprint*
+
+* [**(How) Do Language Models Track State**](https://arxiv.org/abs/2503.02854) \\
+Belinda Z. Li, Zifan Carl Guo, Jacob Andreas \\
+*ArXiv Preprint*
+
 
 * [**Bayesian Preference Elicitation with Language Models**](https://arxiv.org/abs/2403.05534) \\
 Kunal Handa, Yarin Gal, Ellie Pavlick, Noah Goodman, Jacob Andreas, Alex Tamkin, Belinda Z. Li \\
@@ -22,11 +30,7 @@ Kunal Handa, Yarin Gal, Ellie Pavlick, Noah Goodman, Jacob Andreas, Alex Tamkin,
 
 * [**Eliciting Human Preferences with Language Models**](https://arxiv.org/abs/2310.11589) \\
 Belinda Z. Li, Alex Tamkin, Noah Goodman, Jacob Andreas \\
-*ArXiv Preprint*
-
-* [**Measuring and Manipulating Knowledge Representations in Language Models**](https://arxiv.org/abs/2304.00740) \\
-Evan Hernandez, Belinda Z. Li, Jacob Andreas \\
-*ArXiv Preprint*
+*ICLR*, 2025
 
 * [**Implicit Representations of Meaning in Neural Language Models**](https://aclanthology.org/2021.acl-long.143/) \\
 Belinda Z. Li, Maxwell Nye, Jacob Andreas \\
