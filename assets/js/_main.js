@@ -9,11 +9,12 @@ $(function() {
   $('#expandPapers').click(function() {
     var button = $(this); // Get a reference to the button
     $('#papers').slideToggle('slow', function() {
+      // This callback function executes *after* the slideToggle animation is complete
       // Check if the papers section is now visible
       if ($('#papers').is(':visible')) {
-        button.text('Collapse Papers'); // Change text to Collapse
+        button.text('Collapse all papers'); // Change text to Collapse
       } else {
-        button.text('Expand Papers'); // Change text back to Expand (or original text)
+        button.text('Expand all papers'); // Change text back to the original text
       }
     });
   });
