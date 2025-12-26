@@ -127,13 +127,13 @@ Belinda Z. Li, Gabriel Stanovsky, and Luke Zettlemoyer \\
 
 <p />
 
-# Misc
+<!-- # Misc
 Outside of work...
+Fun facts:
 * I organize with the [MIT Graduate Student Union](https://mitgsu.org). We're fighting for a contract with decent wages, benefits, real recourse, equity for international workers, and more. [Please join us](https://docs.google.com/forms/d/e/1FAIpQLSeY4pRlFuBhzQLG1ZcG3fM2IzhPp820k0qN6GT9lKS_CSlahA/viewform?usp=sf_link)!
 * I also dance [ballet](https://www.harvardballetcompany.org/) and have recently started (indoor) bouldering.
 
-Fun facts:
 * Noam Chomsky is my <a style="cursor: pointer;" onclick="toggle_element('academic-ancestry')">great(x3)-grand-advisor</a>.
 <span id="hidden_academic-ancestry" style="display:none;"><small>Belinda Li → Jacob Andreas → Dan Klein → Chris Manning → Joan Bresnan → Noam Chomsky</small></span>
 * Under <a style="cursor: pointer;" onclick="toggle_element('erdos-bacon')">very generous definitions, my Erdős–Bacon number is 7</a>. I eagerly welcome any collaborators – academic or entertainment – willing to lower that number.
-<span id="hidden_erdos-bacon" style="display:none;"><small>If we loosen the definition of "Bacon number" to allow for video appearances, my Bacon number is 3 through [appearing in a video with Bernie Sanders](https://www.youtube.com/watch?v=H2WWt24_t9w), who [happens to have a Bacon number of 2](https://imgur.com/juqtv1c). My Erdős number is 4 through several different paths. However, if we take the standard definition (for those of you Bacon number purists out there), my Bacon number is unfortunately undefined as I have not appeared in a movie.</small></span>
+<span id="hidden_erdos-bacon" style="display:none;"><small>If we loosen the definition of "Bacon number" to allow for video appearances, my Bacon number is 3 through [appearing in a video with Bernie Sanders](https://www.youtube.com/watch?v=H2WWt24_t9w), who [happens to have a Bacon number of 2](https://imgur.com/juqtv1c). My Erdős number is 4 through several different paths. However, if we take the standard definition (for those of you Bacon number purists out there), my Bacon number is unfortunately undefined as I have not appeared in a movie.</small></span> -->
