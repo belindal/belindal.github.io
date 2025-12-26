@@ -3,9 +3,9 @@ layout: single
 author_profile: true
 ---
 
-<b>I want to build AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my research centers around the following three types of models:
+<b>I want to build AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my research focuses on the following three types of models:
 <ul>
-  <li><strong>World models:</strong> models of the external environment that updates in the presence of new information and support coherent downstream prediction and reasoning.</li>
+  <li><strong>World models:</strong> models of the external environment that update in the presence of new information and support coherent downstream prediction and reasoning.</li>
   <li><strong>User models:</strong> models of the user's preferences, goals, beliefs, values, learning styles, and workflows.</li>
   <li><strong>Self models:</strong> models of the AI system's own internal computations, external behaviors, and limitations.</li>
 </ul>
