@@ -3,13 +3,14 @@ layout: single
 author_profile: true
 ---
 
-<b>My research is centered around building AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my work has centered around the following three types of abstract models:
+<b>My research is centered around building AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my work centers around the following three types of abstract models:
 <ul>
-  <li><strong>World models:</strong> a model of the external environment that updates in the presence of new information and allows for coherent downstream predictions.</li>
-  <li><strong>User models:</strong> a model of the user's preferences, goals, beliefs, values, how they learn, and how they work.</li>
-  <li><strong>Self models:</strong> a model of the AI system's own internal computations, external behaviors, limitations, and uncertainty.</li>
+  <li><strong>World models:</strong> models of the external environment that updates in the presence of new information and support coherent downstream prediction and reasoning.</li>
+  <li><strong>User models:</strong> models of the user's preferences, goals, beliefs, values, learning styles, and workflows.</li>
+  <li><strong>Self models:</strong> models of the AI system's own internal computations, external behaviors, and limitations.</li>
 </ul>
-Together, these models support reliable, predictable behavior that is safe and transparent for humans. Ultimately, I hope to pave the way for AI systems that we can collaborate with, learn from, and ultimately empowers rather than replaces us.
+Together, these models enable AI systems to behave more reliably and predictably, in ways that are transparent and safe for humans.
+Ultimately, my goal is to pave the way for AI systems that we can collaborate with and learn from---systems that empower rather than replace people.
 
 # About Me
 I am a PhD candidate at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence (LINGO) lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>.
