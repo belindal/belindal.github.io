@@ -3,7 +3,7 @@ layout: single
 author_profile: true
 ---
 
-<b>My research is centered around building AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my work centers around the following three types of abstract models:
+<b>I want to build AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my research centers around the following three types of models:
 <ul>
   <li><strong>World models:</strong> models of the external environment that updates in the presence of new information and support coherent downstream prediction and reasoning.</li>
   <li><strong>User models:</strong> models of the user's preferences, goals, beliefs, values, learning styles, and workflows.</li>
