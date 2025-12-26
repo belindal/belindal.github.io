@@ -2,17 +2,21 @@
 layout: single
 author_profile: true
 ---
-Hi! I am a PhD candidate at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence (LINGO) lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>. My research is centered around building AI systems with coherent, updateable, and interpretable models of internal and external phenomenon. Specifically, my work has centered around the following three types of abstract models:
-<ul>
-  <li><strong>World model:</strong> a model of the external environment that updates in the presence of new information and allows for coherent downstream predictions.</li>
-  <li><strong>User model:</strong> a model of the user's preferences, goals, beliefs, values, how they learn, and how they work.</li>
-  <li><strong>Self model:</strong> a model of the AI system's own internal computations, external behaviors, limitations, and uncertainty.</li>
-</ul>
-Together, these models support reliable, predictable behavior that is safe and transparent for humans, paving the way for AI systems that we can collaborate with, learn from, and ultimately empowers rather than replaces humans.
 
-I am funded by an <a href='https://ndseg.sysplus.com/NDSEG/about/' target='_blank'>NDSEG Fellowship</a> and <a href='https://www.hluce.org/programs/clare-boothe-luce-program/' target='_blank'>Clare Boothe Luce Graduate Fellowship</a> [<a href='https://news.mit.edu/2021/aziza-almanakly-belinda-li-receive-clare-boothe-luce-graduate-fellowship-women-0827' target='_blank'>Press</a>].
+<b>My research is centered around building AI systems with coherent, updateable, and interpretable models of internal and external phenomenon.</b> Specifically, my work has centered around the following three types of abstract models:
+<ul>
+  <li><strong>World models:</strong> a model of the external environment that updates in the presence of new information and allows for coherent downstream predictions.</li>
+  <li><strong>User models:</strong> a model of the user's preferences, goals, beliefs, values, how they learn, and how they work.</li>
+  <li><strong>Self models:</strong> a model of the AI system's own internal computations, external behaviors, limitations, and uncertainty.</li>
+</ul>
+Together, these models support reliable, predictable behavior that is safe and transparent for humans. Ultimately, I hope to pave the way for AI systems that we can collaborate with, learn from, and ultimately empowers rather than replaces us.
+
+# About Me
+I am a PhD candidate at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence (LINGO) lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>.
+I am funded by a <a href='https://www.hluce.org/programs/clare-boothe-luce-program/' target='_blank'>Clare Boothe Luce Graduate Fellowship</a> [<a href='https://news.mit.edu/2021/aziza-almanakly-belinda-li-receive-clare-boothe-luce-graduate-fellowship-women-0827' target='_blank'>Press</a>] and was a <a href='https://risingstars-eecs.mit.edu/' target='_blank'>2024 Rising Star in EECS</a>.
 Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, and before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
 You can view more in [my CV](./assets/pdfs/Li_Belinda_Zou_CV.pdf).
+
 
 
 # Representative Papers
