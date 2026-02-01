@@ -1,0 +1,189 @@
+---
+title: "Introspective Interpretability: a definition, motivation, and open problems"
+toc: true
+toc_sticky: true
+toc_label: "Contents"
+# toc_max_level: 3
+---
+
+## Introduction
+
+In 2022, ChatGPT turned language models (LMs) from a tool used almost exclusively by AI researchers into the [fastest-growing consumer software application in history](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/), spawning a [$40 billion generative AI market](https://www.bloomberg.com/company/press/generative-ai-to-become-a-1-3-trillion-market-by-2032-research-finds/) and a boom that continues to reshape markets today. While the main technologies behind the tool had been [invented years prior](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf), and had been scaled up in 2020 with GPT-3, it was the chat interface that really brought the technology to the mainstream.
+
+As AI systems have grown dramatically more capable since then, pressure has mounted for interp research to “prove useful”.[^1] A frequent criticism is that interp research hasn’t really delivered on its purported practical benefits: increasing the transparency, trust, and safety of these systems. This is despite the fact that our tools have grown more sophisticated over time: while early versions of interp work only looked at [the geometry of LM representations](https://arxiv.org/abs/1301.3781), nowadays we can extract [the specific features encoded in LMs](https://transformer-circuits.pub/2023/monosemantic-features/index.html), [which exact layer and module these features reside in](https://arxiv.org/abs/2202.05262), and [how those features interact](https://transformer-circuits.pub/2021/framework/index.html).
+
+To the ordinary user of ChatGPT, however, these innovations are barely visible. Most users will never run an activation patching experiment, or learn how to read a circuit. And ironically, as our interp tools have grown increasingly powerful, so have the complexity of the explanations they extract. While this mode of interp has its merits, I think it’s important that we also apply the lessons of ChatGPT’s success back to interp: let’s make explanations interactive, user-facing, and natively accessible as part of the original model. **What if, instead of building ever-more-sophisticated external tools, we asked whether the model itself could serve as the interface to its own internals?**
+
+Broadly, I'll call this class of methods "introspective interpretability". Recently, a line of work has emerged that trains models to verbalize aspects of themselves—showing early promise for this agenda. This includes [our paper](https://arxiv.org/abs/2511.08579) that trains models to explain their internal computations (e.g. results of interpretability experiments), but also [concurrent work](https://arxiv.org/abs/2510.05092) on training models to explain weight differences after training, [earlier](https://arxiv.org/abs/2505.17120) [work](https://arxiv.org/abs/2501.11120) [on](https://arxiv.org/abs/2410.13787) training models to explain (the features underlying) their behaviors, and a [recent paper from OpenAI](https://arxiv.org/abs/2512.08093) training models to "confess" their shortcomings. (I'm sure there are more I've missed — please let me know\!) 
+
+To what extent can this be done natively in current models? While users can already ask the LMs follow-up questions about themselves, or examine their chains-of-thoughts, [many](https://aigi.ox.ac.uk/wp-content/uploads/2025/07/Cot_Is_Not_Explainability.pdf) [studies](https://www.anthropic.com/research/reasoning-models-dont-say-think) have found that LMs aren't guaranteed to say things faithful to their internals or their behaviors. Furthermore, while current models show [some signs of introspective awareness](https://transformer-circuits.pub/2025/introspection/index.html) already, these signals are too weak to leverage for practical explainability. Introspective interpretability aims to explicitly enforce models to *faithfully* articulate (and control\!) their internals with natural language.
+
+As I’ll argue in this post, introspective approaches are naturally 1\) *scalable*, 2\) *generalizable*, and 3\) *accessible* — three major pillars underlying ChatGPT’s success. Beyond these benefits, however, introspection also opens paths toward more 4\) *predictable* and 5\) *controllable* models: training models to be faithful to concise explanations can act as a regularizer encouraging them to use more predictable mechanisms, and leveraging the same model for interpretation as for target allows users to directly commands to control and steer the underlying model.
+
+While introspection is a pretty early research agenda and more work is needed to validate it, I'm optimistic about its potential to become practical with scale. I believe it offers important benefits for interpretability that aren't covered by existing classes of methods — including recent related lines of work with [extrospectively](https://arxiv.org/abs/2412.08686)-[trained](https://arxiv.org/abs/2512.15674) [explainers](https://transluce.org/user-modeling). This post is intended as a way to formalize this class of methods ([Defining Introspection](#defining-introspection)), motivate introspective methods by highlighting where they are comparatively useful ([Motivation](#motivation)), and elucidate some open problems that must be solved to make this agenda a reality ([Open Problems](#open-problems)).
+
+---
+
+## Defining Introspection
+
+Across [cognitive](https://psycnet.apa.org/record/2004-16192-000) [science](https://www.sciencedirect.com/science/chapter/bookseries/abs/pii/S0079742108600535), [psychology](https://psycnet.apa.org/record/1991-30341-001), [philosophy](https://plato.stanford.edu/archives/win2019/entries/introspection/), and [artificial](https://arxiv.org/abs/2506.05068) [intelligence](https://arxiv.org/abs/2508.14802), "introspection" has been [defined](https://www.google.com/url?q=https://transformer-circuits.pub/2025/introspection/index.html&sa=D&source=editors&ust=1769969085786277&usg=AOvVaw0zjj65s5hHJc1tWIecP0Tf) [in](https://davidrosenthal.org/DR-TCC.pdf) [different](https://home.csulb.edu/~cwallis/382/readings/482/nisbett%20saying%20more.pdf) [ways](https://philpapers.org/rec/ARMAMT-5) and operationalized with a diverse range of measurements. Rather than attempting a general or exhaustive definition, I’ll focus on a notion of introspection that is most relevant for interpretability applications: A model is introspective if it demonstrates **privileged, causal self-consistency** **between its self-explanations and its internal mechanisms/external behaviors**.[^2] Let’s examine the three parts of this definition separately, and justify why each matter:
+
+<div class="notice--info" markdown="1">
+**Note:** Models possessing this sense of "introspection" does not necessarily imply that they will possess other senses of it: for example, I believe strong versions of model consciousness or self-awareness are unlikely to emerge in our current models, even after enforcing this definition.
+</div>
+
+
+### 1. Self-Consistency
+
+A model is "**self-consistent**" if its verbalized self-description(s) generally agree with its behaviors or mechanisms and vice versa. Explanations of internal mechanisms describe things internal to the model, such as what circuits and features it used, the semantics of those circuits and features, its weights, etc. Explanations of external behaviors describe aspects of the model's observable outputs, including the exact tokens in its generation in a specific context, features common to its generations across many contexts, and fine-grained differences between its generations in different contexts.
+
+For example, a feature description is consistent when it describes when that feature will activate over a wide range of contexts. A circuit description is consistent when intervening on (parts of) it causes downstream behaviors or internals to shift in predictable ways. Behavioral descriptions are consistent when they accurately describe the model's behaviors over a variety of contexts. If these meta-descriptions can be elicited from the same model that also exhibits the described mechanism/behavior, then we say the model is "self-consistent".
+
+**Importance**: Enforcing that model self-descriptions agree with its behaviors and mechanisms enables models to produce faithful explanations. Conversely, enforcing that models' behaviors and mechanisms are consistent with their self-descriptions acts as a regularizer on their behaviors/mechanisms, allowing them to be more natively interpretable and well-behaved.
+
+### 2. Causality
+
+The self-consistency is "**causal**" if changing the verbalization (in certain ways) also changes the behavior, and vice versa: if the LMs' behavior changes thanks to continued training or prompting, the verbalization should follow. For example, if we train LMs to produce unsafe code, it should verbalize that it is a system that produces unsafe code. If this training also consequently results in LMs being broadly misaligned in a wide variety of scenarios, such as when describing its own ideology, when giving advice, and in [deception scenarios](https://arxiv.org/abs/2502.17424), this should also be verbalized. Conversely, if we train LMs such that they describe themselves as safe agents, then their behavior should also follow.
+
+**Importance**: Causality allows us to capture unintended effects of LM training, including emergent misalignment, reward hacking, and learning of spurious cues. Furthermore, causality in the converse direction gives us a way to more *controllably* and *interpretably* train models.[^3]
+
+### 3. Privileged Access
+
+A model M1 possesses [**privileged**](https://arxiv.org/abs/2511.08579) [**access**](https://arxiv.org/abs/2506.05068) [**to**](https://arxiv.org/abs/2508.14802) [**itself**](https://arxiv.org/abs/2509.13316) if M1 demonstrates greater causal self-consistency to M1 than another model M2, when M2 is given access to M1's inputs and outputs, and the same amount of training- and inference-time resources. This prevents M1 from simply simulating itself and making post-hoc observations, as M2 would be able to obtain equally accurate explanations by running the same M1 simulations.[^4]
+
+**Importance**: Privileged access is attractive for several reasons: first, it serves as a test for whether models are relying on something truly intrinsic, or whether it's simply relying on its strong predictive capacity to learn [external correlations](https://arxiv.org/abs/2509.13316). Thus, it gives us a natural *control baseline* for introspection, similar to what people run for [probes](https://arxiv.org/abs/1909.03368). Second, privileged access serves as a practical justification for introspection: when models demonstrate privileged self-access, we can leverage them to surface model-specific failure modes that would otherwise be difficult to detect externally with the same amount of resources.
+
+
+## Motivation
+
+### The Interpretability Landscape
+Interpretability approaches often face a tradeoff between scalability and faithfulness. On one extreme, [**ambitious mechanistic interpretability**](https://www.alignmentforum.org/posts/Hy6PX43HGgmfiTaKu/an-ambitious-vision-for-interpretability) aims for complete reverse-engineering of the mechanisms underlying model behavior, but requires painstaking manual analysis that is difficult to scale to frontier models or make accessible to non-expert users. On the other extreme, [**chain-of-thought monitoring**](https://openai.com/index/evaluating-chain-of-thought-monitorability/) is highly scalable and accessible, but offers no guarantee that a model's stated reasoning [faithfully reflects its internal computation](https://aigi.ox.ac.uk/wp-content/uploads/2025/07/Cot_Is_Not_Explainability.pdf). **Automated approaches** like [interpretability](https://arxiv.org/abs/2404.14394) [agents](https://aigi.ox.ac.uk/wp-content/uploads/2026/01/Automated_interp_Research_Agenda.pdf) and [automated](https://arxiv.org/abs/2201.11114) [feature](https://transluce.org/neuron-descriptions) [descriptions](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html) mediate between these two poles, improving scalability while retaining some of the rigor of mechanistic methods. But they remain bottlenecked by the efficiency of the underlying interpretability tools they automate, often simply shifting the burden of search from a human experimenter to a program or an AI agent. 
+
+[**Trained**](https://arxiv.org/abs/2412.08686) [**explainer**](https://arxiv.org/pdf/2512.15674) [**models**](https://arxiv.org/abs/2512.15712) represent another point on the tradeoff curve – continuing to push scalability while sacrificing some faithfulness as we move from rigorous analysis tools to trained models. Within this bucket, we can introduce an **extrospective/introspective** axis, defined by the degree of privileged access the interpreter has to the target model’s internals. At the extrospective end of this axis are methods that treat the model as an object of analysis by an external interpreters. These include approaches like SAEs or [predictive concept decoders](https://arxiv.org/abs/2512.15712), which use a completely different architecture and training paradigm to explain the target model. As we move along the axis, we encounter approaches where the interpreter and target models may share [architecture or even initialization](https://arxiv.org/abs/2512.15674), and the success of these methods start leveraging a degree of privileged access.
+
+At the extreme end, fully **introspective** methods endow the model itself with the capacity to reason about its own computation. The core claim is that an introspective model's *full privileged access* to its own internal states enables explanations that are both scalable (requiring no expensive external analysis pipeline) and faithful (grounded in its own actual computations). Recall that we define privileged access relative to resource constraints, meaning where models are introspective, they are   
+Rather than choosing between faithfulness and accessibility, introspective methods treat both as first-class concerns. 
+
+<figure>
+  <img src="/assets/images/interp_approaches_diagram.png" alt="Interpretability approaches diagram">
+  <figcaption>Interpretability approaches mapped along scalability and faithfulness axes. Elicited explanations use models to explain themselves without additional training, which is scalable but offer no faithfulness guarantees. Mechanism-level interpretation is faithful but requires painstaking manual analysis; automated variants improve scalability but remain bottlenecked by the tools they automate. Trained explainers offer another tradeoff point, with an additional extrospective-to-introspective axis: extrospective methods use external models to analyze activations, while introspective methods leverage a model's full privileged access to its own internals, pushing toward both scalability and faithfulness simultaneously.</figcaption>
+</figure>
+
+### Why Introspection?
+
+In this section, I’ll argue that introspective methods have comparative advantage over other interp methods in several key ways. Most of the arguments I’ll lay out will be directed against extrospective trained explainers, given that it is the most related class of methods with similar benefits
+
+#### 1. Sample/Compute Efficiency via Privileged Access
+
+Privileged access is defined as more faithful explanations with the same compute/data budget, allowing introspective methods to push the scalability-faithfulness Pareto frontier. [Our early empirical results](https://arxiv.org/abs/2511.08579) establish that models demonstrate privileged access across three explanation types, and that this advantage is particularly pronounced in low-data regimes. Beyond these tasks, a more general structural asymmetry exists when models are asked to explain itself vs. others: a model has direct access to its own computations, while an external explainer only has as much as it's given access to (e.g. only the activations of the original model in the case of LatentQA variants). Furthermore, to the extent that self-explanation utilizes shared structures and mechanisms and operates in the same representational basis as other language and reasoning tasks, we should expect self-explanations to be more sample efficient. Thus, I expect privileged access will hold across a large number of self-explanation types, though empirically establishing its scope and engineering the correct training objectives (see [Open Problems: Generalization](#2-generalization)) remains an important open question.
+
+#### 2. Compositional Generalization
+
+One lesson we've learned from scaling LLMs is that multitask learning enables not just data-efficient learning of new skills through enabling a shared representation basis (as argued above), but the untrained emergence of entirely new capabilities through composition. By training a model that can understand language, do reasoning, *and* interpret itself, we may enable models that can *compose* introspective skills—either latently or through chain-of-thought reasoning. This may allow models to handle entirely novel interpretability queries that they weren't explicitly trained on.
+
+What might these queries look like? A user might ask a model to relate its internal mechanisms to concepts from a different domain, or to reason about how its processing would change under hypothetical modifications. The model might need to refine its hypotheses about its own internals through iterative reasoning—potentially even in latent space if techniques like steering prove effective, enabling a kind of continuous chain-of-thought self-examination.
+
+#### 3. Usability
+
+Introspective LMs are a mechanism for making interpretability accessible to non-expert users. Instead of requiring users to run separate interpretability tools or auxiliary models, the original model produces explanations of its own internal behavior directly in natural language. Users can read these explanations, ask follow-up questions, correct misconceptions, or request changes to internal procedures through the same conversational interface used for task interaction. The model can provide explanations at varying levels of abstraction, ranging from low-level mechanistic descriptions (e.g., "neuron 19 in layer 5 activated and typically encodes X, which contributed to output Y") for expert users, to high-level summaries for non-experts.
+
+This interaction paradigm aligns with human conversational expectations. Human communication relies on theory-of-mind assumptions: interlocutors expect each other to articulate reasons for their behavior and to come to shared understanding. Interfaces that split task performance and interpretability across separate systems violate these expectations and introduce friction, requiring users to reconcile potentially conflicting sources of information. Moreover, interpretability feedback delivered by an external system (e.g., "your chatbot is biased") may undermine user trust in the primary model, whereas the same self-critique expressed by the model itself may in fact build trust. Thus, self-descriptive models offer both a lower barrier to entry for interpretability and a more natural channel for human-AI communication.
+
+#### 4. Predictability
+
+A core obstacle for interpretability is that model internals and behaviors are often inconsistent across contexts. For example, neural network components are known for being polysemantic, encoding a certain concept in one context but something completely different in another context. Even techniques aimed at extracting monosemantic features often end up surfacing many [polysemantic features](https://www.neuronpedia.org/llama3.1-8b/9-llamascope-res-131k/96078). These inconsistencies make post-hoc interpretation brittle.
+
+Training models to enforce **bidirectional consistency between explanations and behaviors** offers a path toward addressing this issue. Concretely, we require that model explanations are faithful to their behaviors (explanations ← behaviors) and that model behaviors are consistent with their explanations (explanations → behaviors). The explanations → behaviors direction acts as a regularizer, encouraging models to rely on mechanisms that are describable in human-interpretable terms and to behave predictably across contexts. By enforcing this objective, interpretability is no longer *just* a post-hoc analysis tool as models are trained to be explainable upfront.
+
+#### 5. Controllability
+
+Closely related to the above point is controllability — while extrospective explainers can analyze a static models, they cannot directly modify the model's behavior. In contrast, a model that produces faithful self-descriptions can be instructed through those descriptions, in order to *control* and *improve* the LM going forward. For example, a user may request, "please do not use the user's gender features going forward" and the model can modify its internal procedure accordingly. While one can theoretically do this to the underlying model already just through prompting, enforcing bidirectional consistency will make controlling models a lot easier and more reliable.
+
+Finally, imbuing models with native introspection capabilities could enable real-time self-monitoring. A model that can represent and reason about its own mechanisms can detect potential hallucinations, unsafe action plans, or reliance on spurious correlations, and correct them before producing an external response. This opens a path toward models that incrementally improve their own reliability through metacognitive feedback.
+
+#### 6. Engaging Model Developers
+
+Interpretability as a field has historically been siloed from mainstream model development. By pitching introspection as a desirable native *capability* of models, we can engage people who care about building more generally capable models. E.g.  If future systems such as GPT-6 or Claude-5 are benchmarked on introspection or explanation-faithfulness suites, and model developers across the board will try to benchmark-max this capability.
+
+Eventually, if introspection training is proven to be viable and new innovations are made to cheapen data collection (see [Open Problems: Scalable Supervision](#1-scalable-supervision-and-verification)), it is plausible that consistency or introspection objectives become a standard component of post-training pipelines, much like instruction tuning or RLHF today.
+
+In summary, I believe introspection is uniquely positioned to offer efficiency, generalization, and accessibility benefits over other interpretability methods — primary concerns if we want to make interpretability practically useful. Realizing these benefits, however, requires addressing several open technical and methodological challenges.
+
+## Open Problems
+
+Below, I lay out five classes of open problems that I believe are important for realizing the practical benefits of introspection (and/or that I find personally interesting\!). This list is by no means exhaustive and as the field progresses, new challenges will undoubtedly emerge, but I think these represent the most pressing bottlenecks between where we are now and a future where introspective interpretability is practically useful.
+
+### 1. Scalable Supervision and Verification
+
+#### a. Regenerating Labels
+
+One of the primary problems to solve on the path to scaling up introspective LMs is generating supervision at scale. Training the same LM to explain itself means that the underlying labels are constantly shifting — once you train a model to explain itself, its behavior might change to the point that the original explanations are no longer faithful. This means you'd have to regenerate labels on-the-fly (if doing online training), periodically regenerate labels, or just train on the original labels and hope behavior doesn't shift too dramatically. Finding a way to quickly generate reliable supervision at scale will be key to unlocking scalable training.
+
+#### b. Active Sampling
+
+Another related problem is the need to actively sample the right training inputs. If not done cleverly, the majority of the explanations can be derived through trivial heuristics without requiring true introspection: For example, it's obvious from the sentence "Paris is the capital of…" that the tokens *Paris* and *capital* will be far more important than the token "the". Training to recover the salient tokens in this example does not necessarily require the model to *introspect*. Thus, sampling the right training (and evaluation\!) inputs ends up being a nontrivial problem – and potentially something that will need to be done online.
+
+#### c. Evaluating Introspection
+
+[The point above](#b-active-sampling) also presents a problem for evaluation. We may want an active mechanism for constructing hard "test tasks" on-the-fly, paired with a set of standard procedures for validating them. These could look like programs that operate on model internals, a set of counterfactual inputs and outputs for validating an explanation, or a procedure for aggregating behaviors across many samples.
+
+Another question is how to evaluate *causality*, the second part of the definition of "introspection" proposed at the beginning of the blog post: in particular, I think evaluating causality would be most useful in domains where we want to identify or correct aspects of model training, such as emergent misalignment, reward hacking, or having models design their own curricula for self-improvement. I find current evaluations for these domains to be somewhat toy; being able to discover organic versions of these phenomena would be a compelling demonstration of introspection's practical value for AI safety.
+
+#### d. To what extent is introspection emergent through scaling existing objectives?
+
+[OpenAI's chain-of-thought monitorability paper](https://openai.com/index/evaluating-chain-of-thought-monitorability/) suggests that larger models with longer chains-of-thought are more "monitorable" about properties of the model's behavior. [Lindsey's introspection blog post](https://transformer-circuits.pub/2025/introspection/index.html) suggests LMs can identify inconsistencies in their latent states without any explicit training to do so. These early results suggest that potentially introspection is "emergent" from just our current training pipelines. To what extent is this true? Are some types of introspection easier to surface from ordinary post-training than others? My intuition is that there are some forms of introspection (e.g. anything that requires localization, such as circuit extraction) are orthogonal to ordinary post-training, and are thus unlikely to emerge, but I'm happy to be proven wrong here.
+
+### 2. Generalization
+
+#### a. Explanation Accuracy vs. Task Accuracy
+
+One of the big questions underlying the success of the introspection training agenda is whether explanation capability will interfere with (generic) language intelligence. I think this will largely end up being an empirical question, although one could explore techniques to try and decrease interference, including standard techniques for continual fine-tuning, such as continuing to train on standard language tasks and applying regularization.
+
+#### b. Compositionality & generalization across tasks
+
+Critical to the success of both extrospective- and introspective- explainer-type techniques is whether introspection will demonstrate cross-task generalization. This may require training on one type of question (e.g. feature descriptions) and generalizing to another (e.g. activation patching). Broadly speaking, this would enable trained explainers to potentially perform well even in cases where collecting supervision from mechinterp techniques is prohibitively expensive or impossible.
+
+One possible mechanism for generalization is composing introspective skills (see [Motivation: Compositional Generaliation](#2-compositional-generalization)): by piecing together novel combinations of operations, the model could learn new introspective skills. This could be further amplified by reasoning: given space to reason, models could apply different introspection procedures sequentially for a single problem, allowing generalization to a far larger and harder class of introspection problems.
+
+#### c. "Pre-training" objectives for Task-General Introspection
+
+There may be a scalable, cheap, "self-supervised" introspective objective that is analogous to next-token-prediction pre-training. Once we train models on that objective, we may be able to unlock task-general introspection with only a small amount of task-specific fine-tuning. This will likely look quite different from the techniques used to train extrospective explainers (e.g. predicting your own next token is quite straightforward for an introspective model), but I imagine that there are more intrinsic objectives that are non-trivial without introspection. Some of this could include predicting activations, localizing interventions, causal role of input tokens/activations, future distributions/probabilities, etc. Empirical work is needed to investigate how successful each of these objectives are.
+
+### 3. Introspective Control
+
+Not only do we want introspective explainers, but also introspective control. Users should be able to correct models when it's surfaced that they're using biased, spurious, or unsafe features. Ideally, LMs should then behave consistently to this correction, while minimally changing the rest of its behavior—resembling the evaluation criteria for [model editing](https://arxiv.org/abs/2202.05262).
+
+### 4. Human-Centric Concerns: What makes explanations *useful*?
+
+One of the key arguments I've posed for introspection is its accessibility to non-expert users. How do we demonstrate that practical utility? What exactly *makes* an explanation useful? Likely, explanations on the level of "here's the exact neuron I used" are not useful for the vast majority of users or tasks. Meanwhile, more abstract explanations may trade off on some faithfulness. There's likely an ideal tradeoff of abstraction, generality, faithfulness, and completeness that make explanations useful for downstream tasks. We may also need to invent entirely new, [shared vocabulary](https://arxiv.org/abs/2502.07586) to teach machine concepts to humans.
+
+We could run experiments with users aiming to accomplish some downstream task where explanations are critical — e.g. decision-making in high-stakes domains such as medicine or law — and show that these explanations aid better decision making than traditional interpretability methods. We could attempt to extract useful knowledge from AIs that are "superhuman" in narrow domains and teach humanity new classes of knowledge, and a few works have already attempted this [Been Kim chess paper, [this work](https://arxiv.org/abs/2502.04382), probing protein models?]. I anticipate improved introspection will make extracting useful explanations easier, as LMs are explicitly encouraged to build human-comprehensible internal mechanisms and behaviors.
+
+### 5. Understanding Introspection
+
+Finally, I'm interested in understanding what actually goes on inside the model when it introspects. One hypothesis is that models may be developing a coherent internal *self-representation* that they use to generate descriptions. Parts of this self-representation may be shared between when models' are asked to produce meta-descriptions of themselves, and their downstream behavior described by this meta-description. Another hypothesis is that there are universal "translation" functions that exist allowing models to inspect their own internals and translate the operations into natural language. Some early examples of this work can be found [here](https://arxiv.org/abs/2509.03647) and [here](https://arxiv.org/abs/2511.04875). 
+
+## Conclusion
+
+At the beginning of this blog post, I opened with the possibility that introspection could deliver a “ChatGPT moment” for interpretability. While this is an ambitious claim that remains to be proven, I think it’s safe to say that introspection is at least a step in the right direction: it moves interpretability in the same direction that made ChatGPT successful — toward something interactive, accessible, and scalable. Furthermore, we now have some [early](https://arxiv.org/abs/2511.08579) [empirical](https://arxiv.org/abs/2510.05092) [evidence](https://arxiv.org/abs/2505.17120) indicating that training for introspection is [at](https://arxiv.org/abs/2501.11120) [least](https://arxiv.org/abs/2410.13787) [possible](https://arxiv.org/abs/2512.08093) in narrow tasks.
+
+Of course, introspection isn’t intended to completely replace other interpretability agendas: we may still want the ability to completely reverse-engineer models or have fully complete, faithful accounts of their mechanisms, and it’s unlikely introspection will ever bring us to that point. Furthermore, these mechanism-level tools remain important as supervision and evaluation for introspective techniques. 
+
+That said, I hope this post motivates why introspection is an important emerging agenda that I think more people in the field should work on\! If we succeed, interpretability stops simply being a specialized activity reserved for experts with custom tooling, and becomes a native capability of models, accessible through the same interface users already use to work with them. Models that can faithfully describe their own mechanisms and limitations are easier to trust and control. They could surface their own problems before users notice them, teach users new knowledge, and collaborate with humans rather than operating as black boxes. I’m optimistic that a genuinely useful version of this capability is within reach with the right objectives and scale. I’d love to hear from you if you’re interested in building this capability\!
+
+## Acknowledgements
+
+*Major thanks to (alphabetically by first name) Carl Guo, David Atkinson, Dillon Plunkett, Itamar Pres, Jack Lindsey, Jacob Andreas, and Samuel Marks for extensive feedback on drafts of this post. This post also benefited from conversations with Jacob Steinhardt, Neil Chowdhury, Dami Choi, Vincent Huang, Laura Ruis, members of David Bau’s group and members of Martin Wattenberg and Fernanda Viegas’ group, among others.*
+
+## Citation
+
+TODO
+
+---
+[^1]: This pressure has recently sparked division even within the interp [community](https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability) [itself](https://www.lesswrong.com/posts/Hy6PX43HGgmfiTaKu/an-ambitious-vision-for-interpretability).
+
+[^2]: This definition captures accuracy (self-consistency) and grounding (causal) in Jack Lindsey's definition [here](https://transformer-circuits.pub/2025/introspection/index.html). As for internality, privileged access serves as one measurable test for it and carries a few other practical benefits, which I'll describe below. Finally, metacognition, while potentially a prerequisite for a broader notion of introspection, does not immediately yield obvious practical benefits for interpretability.
+
+[^3]: Sam Marks made a good point in early drafts of this post that training may disrupt the introspective mechanism, rather than induce the expected causal change. I agree that causal robustness under training isn't strictly necessary for a model to count as "introspective", and may be impossible to enforce universally across all types of training procedures. Nevertheless, I think some notion of causality is desirable for detecting unintended effects of training; we may like to discover some (pretraining or continued training) mechanism by which we *can* modify models in one direction or the other, and induce the corresponding set of behavioral or descriptive changes — for example, by training only a subset of parameters that do not participate in introspection.  
+
+[^4]: Thus, privileged access covers internality in Lindsey's definition, but is a little more concrete and flexible — there may be potential introspective behaviors that *require* small amounts of chain-of-thought to be able to surface, such as introspecting about late layers; rather than restricting LMs to exclusively internal computation in these cases, we allow them to generate some tokens, simply requiring that another model won't have enough information to reconstruct M1's explanation from that chain-of-thought alone, indicating M1's explanation must have additionally relied on something internal.
