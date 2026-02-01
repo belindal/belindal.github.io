@@ -177,7 +177,16 @@ That said, I hope this post motivates why introspection is an important emerging
 
 ## Citation
 
-TODO
+```bibtex
+@misc{li2026introspective,
+  title        = {Introspective Interpretability: a definition, motivation, and open problems},
+  author       = {Li, Belinda Z.},
+  year         = {2026},
+  month        = feb,
+  howpublished = {\url{https://belindal.github.io/introspection}},
+  note         = {Blog post}
+}
+```
 
 ---
 [^1]: This pressure has recently sparked division even within the interp [community](https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability) [itself](https://www.lesswrong.com/posts/Hy6PX43HGgmfiTaKu/an-ambitious-vision-for-interpretability).
