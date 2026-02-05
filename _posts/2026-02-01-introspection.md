@@ -1,5 +1,5 @@
 ---
-title: "Introspective Interpretability: a definition, motivation, and open problems"
+title: "Introspective Interpretability: a Definition, Motivation, and Open Problems"
 toc: true
 toc_sticky: true
 toc_label: "Contents"
