@@ -105,7 +105,8 @@ analytics:
 # Site Author
 author:
   name             : "Belinda Zou Li"
-  avatar           : "/assets/images/bzl_headshot_2023_cropped.png"
+  # avatar           : "/assets/images/headshot_square.png"
+  avatar           : "/assets/images/2026-02-12-090508.jpeg"
   # bio              : "I am an **amazing** person."
   # location         : "Somewhere"
   email            :
