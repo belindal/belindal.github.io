@@ -13,8 +13,8 @@ Together, these models enable AI systems to behave more reliably and predictably
 Ultimately, my goal is to pave the way for AI systems that we can collaborate with and learn from---systems that empower rather than replace people.
 
 # About Me
-I am a PhD candidate at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence (LINGO) lab @ MIT</a>. My advisor is <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>.
-I am funded by a <a href='https://www.hluce.org/programs/clare-boothe-luce-program/' target='_blank'>Clare Boothe Luce Graduate Fellowship</a> [<a href='https://news.mit.edu/2021/aziza-almanakly-belinda-li-receive-clare-boothe-luce-graduate-fellowship-women-0827' target='_blank'>Press</a>] and was a <a href='https://risingstars-eecs.mit.edu/' target='_blank'>2024 Rising Star in EECS</a>.
+I recently completed my PhD at <a href='https://www.csail.mit.edu/' target='_blank'>MIT CSAIL</a>, where I was affiliated with the <a href='https://lingo.csail.mit.edu/' target='_blank'>language & intelligence (LINGO) lab @ MIT</a> and advised by <a href='https://web.mit.edu/jda/www/' target='_blank'>Jacob Andreas</a>.
+I was funded by a <a href='https://www.hluce.org/programs/clare-boothe-luce-program/' target='_blank'>Clare Boothe Luce Graduate Fellowship</a> [<a href='https://news.mit.edu/2021/aziza-almanakly-belinda-li-receive-clare-boothe-luce-graduate-fellowship-women-0827' target='_blank'>Press</a>] and was a <a href='https://risingstars-eecs.mit.edu/' target='_blank'>2024 Rising Star in EECS</a>.
 Previously, I spent a year at <a href='https://ai.facebook.com/' target='_blank'>Facebook AI Applied Research</a>, and before that, I obtained my B.S. in Computer Science at the <a href='https://www.cs.washington.edu/' target='_blank'>University of Washington</a>, where I worked with <a href='https://www.cs.washington.edu/people/faculty/lsz' target='_blank'>Luke Zettlemoyer</a>.
 You can view more in [my CV](./assets/pdfs/Li_Belinda_Zou_CV.pdf).
 
