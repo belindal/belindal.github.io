@@ -111,9 +111,9 @@ author:
   # location         : "Somewhere"
   email            :
   links:
-    - label: "bzl [AT] mit.edu"
+    - label: "bzl [AT] anthropic.com"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:bzl@mit.edu"
+      url: "mailto:bzl@anthropic.com"
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
     #   url: "https://your-website.com"
